@@ -1,0 +1,34 @@
+<page-heading>
+    <div class="container">
+        <br>
+        Eszközök
+        <hr>
+    </div>
+</page-heading>
+ 
+    <div class="container">
+      <h4>Regisztrált eszközök típus szerint:</h4>
+      <br>
+      <button type="button" class="add-button btn btn-primary" routerLink="add">
+        <i class="fa fa-plus" aria-hidden="true"></i> Új eszköztípus hozzáadása
+    </button>
+    <hr>
+      <div class="row">
+          <div *ngFor="let machine of machines" class="card border-primary mb-3" style="width: 16rem;">
+              <div class="card-header">{{machine.name}}
+                <button style="float: right; width: 30px; height: 30px; padding: 0px;" type="button" class="modify btn btn-danger" (click)="delete(machine)">
+                    <i style="size: 10px;" class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+                <button [routerLink]="['edit', machine.id]" style="float: right; width: 30px; height: 30px; padding: 0px;" type="button" class="modify btn btn-warning">
+                  <i style="size: 10px;" class="fa fa-pencil" aria-hidden="true"></i>
+                </button>
+              </div>
+              <img class="card-img-top mx-auto d-block" src="{{machine.image}}" alt="Card image cap">
+              <div class="card-body text-primary">
+                <h5 class="card-title">{{machine.count}} darab</h5>
+                <p class="card-text">{{machine.comment}}</p>
+                <button type="button" [routerLink]="['details', machine.id]" class="btn btn-primary">Eszközök megtekintése</button>
+              </div>
+          </div>
+      </div>
+  </div>

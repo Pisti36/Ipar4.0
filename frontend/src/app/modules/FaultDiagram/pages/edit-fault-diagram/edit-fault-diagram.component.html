@@ -1,0 +1,133 @@
+<div class="container">
+    <page-heading>
+        <div class="container">
+            <br>
+            Diagram szerkesztése
+        </div>
+    </page-heading>
+      <form (ngSubmit)="onSubmit('editFaultDiagram')" [formGroup]="editFaultDiagram">
+        <div class="form-group row">
+          <label for="diagramName" class="col-sm-2 col-form-label">Diagram neve</label>
+          <div class="col-sm-10">
+            <input formControlName="diagramName" type="text" class="form-control" id="diagramName" [(ngModel)]="diagram.fault_name">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="machineType" class="col-sm-2 col-form-label">Eszköz típusa</label>
+          <div class="col-sm-10">
+            <input formControlName="machineType" type="text" class="form-control" id="machineType" [(ngModel)]="diagram.machine_type">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">Mentés</button> 
+    </form>
+    <br>
+<hr>
+  </div>
+      <div class="card">
+        <div class="card-body">
+          <div id="table" class="table-editable">
+
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+              <tr>
+                <th class="text-center">Kérdés ID</th>
+                <th class="text-center">Question</th>
+                <th class="text-center">leaf_solution</th>
+                <th class="text-center">image_link</th>
+                <th class="text-center">image_link_suggestion</th>
+                <th class="text-center">video_link</th>
+                <th class="text-center">video_link_suggestion</th>
+                <th class="text-center">edit</th>
+              </tr>
+              <tr *ngFor="let question of questions; let id = index">
+                <td>
+                  <span (blur)="updateList(id, 'question_id', $event, question)" contenteditable="true">{{question.question_id}}</span>
+                </td>
+                <td>
+                  <span contenteditable="true" (blur)="updateList(id, 'question', $event, question)">{{question.question}}</span>
+                </td>
+                <td>
+                  <span contenteditable="true" (blur)="updateList(id, 'leaf_solution', $event, question)">{{question.leaf_solution}}</span>
+                </td>
+                <td>
+                  <span contenteditable="true" (blur)="updateList(id, 'image_link', $event, question)">{{question.image_link}}</span>
+                </td>
+                <td>
+                  <span contenteditable="true" (blur)="updateList(id, 'image_link_suggestion', $event, question)">{{question.image_link_suggestion}}</span>
+                </td>
+                <td>
+                  <span contenteditable="true" (blur)="updateList(id, 'video_link', $event, question)">{{question.video_link}}</span>
+                </td>
+                <td>
+                  <span contenteditable="true" (blur)="updateList(id, 'video_link_suggestion', $event, question)">{{question.video_link_suggestion}}</span>
+                </td>
+                <td>
+                    <span class="table-remove">
+                        <button type="button" class="btn btn-danger" (click)="delete(question)">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </button>
+                    </span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+<br>
+      <div class="container addQuestion">
+        <button class="btn btn-success addQuestionButton" (click)="showForm()">+ Új kérdés hozzáadása</button>
+          <div *ngIf="showMainContent">
+            <form (ngSubmit)="onSubmit('newQuestion')" [formGroup]="addNewQuestion">
+              <div class="form-group row">
+                <label for="questionId" class="col-sm-2 col-form-label">Kérdés azonosítója</label>
+                <div class="col-sm-10">
+                  <input formControlName="questionId" type="text" class="form-control" id="questionId">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="questionName" class="col-sm-2 col-form-label">Kérdés</label>
+                <div class="col-sm-10">
+                  <input formControlName="questionName" type="text" class="form-control" id="questionName">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="questionType" class="col-sm-2 col-form-label">Kérdés típusa</label>
+                <div class="col-sm-10">
+                  <input formControlName="questionType" type="text" class="form-control" id="questionType">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="leafSolution" class="col-sm-2 col-form-label">Megoldás (ha levél)</label>
+                <div class="col-sm-10">
+                  <input formControlName="leafSolution" type="text" class="form-control" id="leafSolution">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="imageLink" class="col-sm-2 col-form-label">Kép linkje</label>
+                <div class="col-sm-10">
+                  <input formControlName="imageLink" type="text" class="form-control" id="imageLink">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="imageLinkSuggestion" class="col-sm-2 col-form-label">Kép magyarázat</label>
+                <div class="col-sm-10">
+                  <input formControlName="imageLinkSuggestion" type="text" class="form-control" id="imageLinkSuggestion">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="videoLink" class="col-sm-2 col-form-label">Videó linkje</label>
+                <div class="col-sm-10">
+                  <input formControlName="videoLink" type="text" class="form-control" id="videoLink">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="videoLinkSuggestion" class="col-sm-2 col-form-label">Videó magyarázat</label>
+                <div class="col-sm-10">
+                  <input formControlName="videoLinkSuggestion" type="text" class="form-control" id="videoLinkSuggestion">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-success">Mentés</button> 
+          </form>
+          </div>
+      </div>
+
+

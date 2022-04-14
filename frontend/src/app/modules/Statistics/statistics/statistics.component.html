@@ -1,0 +1,33 @@
+<page-heading>
+    <div class="container">
+        <br>
+        Statisztikák        
+        <hr>
+    </div>
+  </page-heading>
+<div class="container">
+    <h5>Eszköztípusok statisztikái</h5>
+    <br>
+    <mat-form-field>
+        <mat-label>Válassz egy lehetőséget!</mat-label>
+        <mat-select [(value)]="selectedMachineType">
+            <mat-option (click)="select(machineType)" *ngFor="let machineType of machineTypes" [value]="machineType.name">{{machineType.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button (click)="selectStatistics()" type="button" class="btn btn-primary">{{selectedMachineType}} statisztika megtekintése</button>
+      </div>
+      <hr>
+
+      <h5>Eszközök statisztikái</h5>
+      <br>
+      <mat-form-field>
+          <mat-label>Válassz egy lehetőséget!</mat-label>
+          <mat-select [(value)]="selectedMachine">
+            <mat-option (click)="selectMachine(machine)" *ngFor="let machine of machines" [value]="machine.name">{{machine.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+            <button (click)="selectMachineStatistics()" [(value)]="selectedMachine" type="button" class="btn btn-primary">{{selectedMachine}} statisztika megtekintése</button>
+        </div>
+</div>

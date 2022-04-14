@@ -1,0 +1,20 @@
+@media all and (min-width: 768px) {
+    tr  {
+      td {
+        vertical-align: middle !important;
+      }
+      span {
+        &:not([class]) {
+          padding: 1rem 1rem;
+        }
+      }
+    }
+  }
+
+  .addQuestion{
+    margin-bottom: 100px;
+  }
+
+  .addQuestionButton {
+    margin-bottom: 30px;
+  }

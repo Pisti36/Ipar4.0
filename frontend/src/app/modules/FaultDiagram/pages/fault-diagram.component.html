@@ -1,0 +1,27 @@
+<div class="container">
+<page-heading>
+        <br>
+        Diagramok
+</page-heading>
+<p>Az Ishikawa-diagram fő ágai</p>
+<hr>
+</div>
+
+    <div class="container">
+          <form (ngSubmit)="onSubmit()" [formGroup]="addDiagramForm">
+            <div class="form-group row">
+              <label for="diagramName" class="col-sm-2 col-form-label">Diagram neve:</label>
+              <div class="col-sm-10">
+                <input formControlName="diagramName" type="text" class="form-control" id="diagramName" placeholder="Nem olvad meg a filament">
+                <small id="emailHelp" class="form-text text-muted">Ez lesz a diagram neve. A későbbiek során ehhez lehet majd hozzáadni a hibához tartozó kérdéseket.</small>
+              </div>
+              <label for="machineType" class="col-sm-2 col-form-label">Eszköz típus:</label>
+              <div class="col-sm-10">
+                <input formControlName="machineType" type="text" class="form-control" id="machineType" placeholder="1">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success">Új diagram hozzáadása</button> 
+        </form>
+
+    </div>
+<datatable></datatable>
