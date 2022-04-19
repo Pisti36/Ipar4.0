@@ -16,5 +16,13 @@ export const routes: Routes = [
     {
         path: 'statistics',
         loadChildren: () => import('../modules/Statistics/statistics.module').then(m => m.StatisticsModule)
+    },
+    {
+        path: 'login',
+        loadChildren: () => import('../modules/Auth/auth.module').then(m => m.AuthModule)
+    },
+    {
+        path: 'operator',
+        loadChildren: () => import('../modules/Operator/operator.module').then(m => m.OperatorModule)
     }
 ]

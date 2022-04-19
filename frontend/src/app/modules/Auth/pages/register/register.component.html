@@ -1,0 +1,28 @@
+<page-heading>
+<div class="container">
+    <br>
+    Regisztráció
+</div>
+</page-heading>
+<div class="container">
+    <div class="col-md-9">
+        <form>
+            <div class="mb-3 mt-4">
+                <label for="registerEmail" class="form-label">Email cím</label>
+                <input type="email" class="form-control" id="registerEmail">
+            </div>
+            <div class="mb-3">
+                <label for="registerPassword" class="form-label">Jelszó</label>
+                <input type="password" class="form-control" id="registerPassword">
+            </div>
+            <div class="mb-3">
+                <label for="repeatPassword" class="form-label">Jelszó újra</label>
+                <input type="password" class="form-control" id="repeatPassword">
+            </div>
+            <div class="row justify-content-between">
+                <button  class="btn registerbtn" routerLink="/login" routerLinkActive="active">Regisztráció</button>
+                <button  class="btn btn-primary" routerLink="/login" routerLinkActive="active">Vissza</button>
+            </div>
+        </form>
+    </div>  
+</div>

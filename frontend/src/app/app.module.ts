@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
+import { AuthModule } from './modules/Auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ChartsModule } from 'ng2-charts';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    ChartsModule
+    ChartsModule,
+    AuthModule
   ],
   exports: [AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

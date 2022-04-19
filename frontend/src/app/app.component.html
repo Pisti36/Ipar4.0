@@ -4,7 +4,7 @@
       <div class="container">
 
         <a class="navbar-brand" routerLink="/machines">
-          <i class="fa fa-wrench" aria-hidden="true"></i> FaultAssist
+          <i class="fa fa-wrench" aria-hidden="true"></i> {{ title }}
         </a>
 
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,9 +22,14 @@
             <li class="nav-item">
               <a class="nav-link" routerLink="/statistics" routerLinkActive="active">Statisztikák</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/operator" routerLinkActive="active">Operátor nézet</a>
+            </li>
           </ul>
           <ul class="navbar-nav">
-            <li class="nav-item"><a href="#" class="nav-link ">Kijelentkezés</a></li>
+            <li class="nav-item">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">Kijelentkezés</a>
+          </li>
           </ul>
         </div>
       </div>
