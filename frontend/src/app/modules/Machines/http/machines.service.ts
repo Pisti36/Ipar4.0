@@ -20,16 +20,16 @@ export class MachineService {
   private listMachineEntitiesUrl: string;
 
   constructor(private http: HttpClient) {
-    this.machineList = 'http://vm.ik.bme.hu:15206/machinetype/count';
-    this.machineAdd = 'http://vm.ik.bme.hu:15206/machinetype/add';
-    this.machineDelete = 'http://vm.ik.bme.hu:15206/machinetype/list/';
-    this.machineListOne = 'http://vm.ik.bme.hu:15206/machinetype/list/';
+    this.machineList = 'http://localhost:8080/machinetype/count';
+    this.machineAdd = 'http://localhost:8080/machinetype/add';
+    this.machineDelete = 'http://localhost:8080/machinetype/list/';
+    this.machineListOne = 'http://localhost:8080/machinetype/list/';
 
-    this.machineByMachineType = 'http://vm.ik.bme.hu:15206/machine/find/';
-    this.machineById = 'http://vm.ik.bme.hu:15206/machine/find/';
-    this.addMachineEntity = 'http://vm.ik.bme.hu:15206/machine/add';
-    this.editMachineEntity = 'http://vm.ik.bme.hu:15206/machine/list/';
-    this.listMachineEntitiesUrl = 'http://vm.ik.bme.hu:15206/machine/list';
+    this.machineByMachineType = 'http://localhost:8080/machine/find/';
+    this.machineById = 'http://localhost:8080/machine/find/';
+    this.addMachineEntity = 'http://localhost:8080/machine/add';
+    this.editMachineEntity = 'http://localhost:8080/machine/list/';
+    this.listMachineEntitiesUrl = 'http://localhost:8080/machine/list';
 
   }
 
