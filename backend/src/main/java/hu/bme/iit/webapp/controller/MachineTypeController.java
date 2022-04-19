@@ -17,7 +17,7 @@ import java.util.Map;
 @Controller
 @RequestMapping(path="/machinetype")
 @RestController
-@CrossOrigin(origins = "http://10.9.0.97:4200")
+@CrossOrigin(origins = "http://vm.ik.bme.hu:10813")
 public class MachineTypeController {
 
     private MachineTypeService machineTypeService;
