@@ -16,13 +16,13 @@ export class FaultDiagramService {
   private diagramsByMachineTypeUrl: string;
 
   constructor(private http: HttpClient) {
-    this.diagramListUrl = 'http://vm.ik.bme.hu:15206/faultdiagram/list';
-    this.diagramAddUrl = 'http://vm.ik.bme.hu:15206/faultdiagram/add';
-    this.diagramDeleteUrl = 'http://vm.ik.bme.hu:15206/faultdiagram/list/';
-    this.questionByMachineTypeUrl = 'http://vm.ik.bme.hu:15206/question/find/'
-    this.editQuestionUrl = 'http://vm.ik.bme.hu:15206/question/list/'
-    this.saveQuestionUrl = 'http://vm.ik.bme.hu:15206/question/add'
-    this.diagramsByMachineTypeUrl = 'http://vm.ik.bme.hu:15206/faultdiagram/diagrams/'
+    this.diagramListUrl = 'http://localhost:8080/faultdiagram/list';
+    this.diagramAddUrl = 'http://localhost:8080/faultdiagram/add';
+    this.diagramDeleteUrl = 'http://localhost:8080/faultdiagram/list/';
+    this.questionByMachineTypeUrl = 'http://localhost:8080/question/find/'
+    this.editQuestionUrl = 'http://localhost:8080/question/list/'
+    this.saveQuestionUrl = 'http://localhost:8080/question/add'
+    this.diagramsByMachineTypeUrl = 'http://localhost:8080/faultdiagram/diagrams/'
   }
 
   public findAll(): Observable<FaultDiagram[]> {
