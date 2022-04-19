@@ -12,8 +12,8 @@ export class StatisticsService {
   private statisticsDataByReports: string;
 
   constructor(private http: HttpClient) {
-    this.reportByMachineUrl = 'http://localhost:8080/report/statistics/';
-    this.statisticsDataByReports = 'http://localhost:8080/reportevent/statisticsformachines';
+    this.reportByMachineUrl = 'http://vm.ik.bme.hu:15206/report/statistics/';
+    this.statisticsDataByReports = 'http://vm.ik.bme.hu:15206/reportevent/statisticsformachines';
   }
 
   public getReportsByMachine(machines: MachineEntity[]): Observable<Report[]>{
