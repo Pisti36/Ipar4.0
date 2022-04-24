@@ -14,21 +14,21 @@
         <div class="navbar-collapse collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" routerLink="/machines" routerLinkActive="active">Eszközök</a>
+              <a class="nav-link" *ngIf="showNavbar" routerLink="/machines" routerLinkActive="active" id="machinebtn">Eszközök</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="/faultdiagram" routerLinkActive="active">Diagramok</a>
+              <a class="nav-link" *ngIf="showNavbar" routerLink="/faultdiagram" routerLinkActive="active" id="diagrambtn">Diagramok</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="/statistics" routerLinkActive="active">Statisztikák</a>
+              <a class="nav-link" *ngIf="showNavbar" routerLink="/statistics" routerLinkActive="active" id="statisticbtn">Statisztikák</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="/operator" routerLinkActive="active">Operátor nézet</a>
+              <a class="nav-link" *ngIf="showNavbar" routerLink="/operator" routerLinkActive="active" id="operatorbtn">Operátor nézet</a>
             </li>
           </ul>
           <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link" routerLink="/login" routerLinkActive="active">Kijelentkezés</a>
+            <a class="nav-link" *ngIf="showNavbar" routerLink="/login" routerLinkActive="active" (click)="toggleHide()" id="loginbtn">Kijelentkezés</a>
           </li>
           </ul>
         </div>

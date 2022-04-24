@@ -1,3 +1,14 @@
-<div class="col">
-    <h2>Directions</h2>
+<div *ngIf=ytlinkexists class="row justify-content-center mt-5 videoWrapper" >
+    <iframe *ngIf=ytlinkexists  src="https://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1" frameborder="0" scrolling='no' allow='autoplay' allowfullscreen></iframe>
 </div>
+<div class="container mt-5">
+    <h2>{{description}}</h2>
+</div>
+<div class="container solutioncontainer mt-5">
+    <h2 class="row justify-content-center title text-center">Megoldódott a probléma?</h2>
+    <div class="row justify-content-around align-items-bottom mt-5">
+        <button  class="btn btn-primary" routerLink="suggestion" routerLinkActive="active"><i class="fa fa-check"></i> Igen</button>
+        <button  class="btn btn-primary" routerLink="suggestion" routerLinkActive="active"><i class="fa fa-close"></i> Nem</button>
+    </div>
+</div>
+
