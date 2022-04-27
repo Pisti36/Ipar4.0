@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
@@ -38,7 +39,8 @@ import { OperatorModule } from './modules/Operator/operator.module';
     ReactiveFormsModule,
     ChartsModule,
     AuthModule,
-    OperatorModule
+    OperatorModule,
+    RouterModule
   ],
   exports: [AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

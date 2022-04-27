@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './pages/register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
@@ -19,6 +20,8 @@ const routes: Routes = [
     CommonModule, 
     SharedModule,
     HttpClientModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   exports: [
     LoginComponent,

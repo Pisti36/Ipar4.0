@@ -16,7 +16,7 @@ export class AppComponent {
   }
   
   toggleHide(){
-    this.authService.toggleShow();
+    this.authService.toggleShow(false);
   }
 
 }

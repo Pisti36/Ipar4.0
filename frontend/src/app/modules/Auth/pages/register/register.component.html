@@ -6,22 +6,25 @@
 </page-heading>
 <div class="container">
     <div class="col-md-9">
-        <form>
+        <form (ngSubmit)="onSubmit()" [formGroup]="reactiveForm">
             <div class="mb-3 mt-4">
                 <label for="registerEmail" class="form-label">Email cím</label>
-                <input type="email" class="form-control" id="registerEmail">
+                <input type="email" [ngClass]="{'is-invalid': reactiveForm.get('email').errors && reactiveForm.get('email').touched}" class="form-control" id="registerEmail" formControlName="email">
+                <div class="invalid-feedback" *ngIf="reactiveForm.get('email').hasError('pattern')"> Must enter a valid email</div>
             </div>
             <div class="mb-3">
                 <label for="registerPassword" class="form-label">Jelszó</label>
-                <input type="password" class="form-control" id="registerPassword">
+                <input required type="text" [ngClass]="{'is-invalid': reactiveForm.get('password').errors && reactiveForm.get('password').touched}" class="form-control" name="password" formControlName="password">
+                <div class="invalid-feedback" *ngIf="reactiveForm.get('password').hasError('minlength')"> Password must be at least 8 characters</div>
             </div>
             <div class="mb-3">
                 <label for="repeatPassword" class="form-label">Jelszó újra</label>
-                <input type="password" class="form-control" id="repeatPassword">
+                <input type="password" [ngClass]="{'is-invalid': reactiveForm.get('confirmpassword').errors && reactiveForm.get('confirmpassword').touched}" class="form-control" id="repeatPassword" formControlName="confirmpassword">
+                <div class="invalid-feedback" *ngIf="reactiveForm.get('confirmpassword').hasError('mismatch')"> Passwords don't match</div>
             </div>
             <div class="row justify-content-between">
-                <button  class="btn registerbtn" routerLink="/login" routerLinkActive="active">Regisztráció</button>
-                <button  class="btn btn-primary" routerLink="/login" routerLinkActive="active">Vissza</button>
+                <button  type="submit" class="btn registerbtn" routerLink="/login" routerLinkActive="active" [disabled]="!reactiveForm.valid">Regisztráció</button>
+                <button  class="btn btn-primary" (click)="back()">Vissza</button>
             </div>
         </form>
     </div>  

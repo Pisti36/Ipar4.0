@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   }
 
   ToggleShow(){
-    this.authService.toggleShow();
+    this.authService.toggleShow(true);
   }
 
   ngOnInit(): void {

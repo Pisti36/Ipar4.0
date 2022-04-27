@@ -10,10 +10,9 @@ export class AuthService {
 
   constructor() { }
 
-  toggleShow():void{
-    console.log("function works!")
-    this.showNavbar = !this.showNavbar
-    this.subject.next(this.showNavbar)
+  toggleShow(value: boolean):void{
+    this.showNavbar = value;
+    this.subject.next(this.showNavbar);
   }
 
   onToggle(): Observable<any>{
