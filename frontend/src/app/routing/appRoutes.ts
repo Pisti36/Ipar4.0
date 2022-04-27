@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
     {
         path: '',
-        loadChildren: () => import('../modules/Machines/machines.module').then(m => m.MachinesModule)
+        loadChildren: () => import('../modules/Auth/auth.module').then(m => m.AuthModule)
     },
     {
         path: 'faultdiagram',
