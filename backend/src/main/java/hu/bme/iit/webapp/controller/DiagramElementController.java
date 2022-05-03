@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping(path="question")
+@RequestMapping(path="diagram_elements")
 @RestController
 @CrossOrigin(origins = "http://vm.ik.bme.hu:10813")
 public class DiagramElementController {

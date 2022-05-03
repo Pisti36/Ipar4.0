@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name="report_event")
+@Table(name="report_elements")
 public class ReportEvent {
 
     public ReportEvent() {}
