@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Ipar4.0.iml" filepath="$PROJECT_DIR$/.idea/Ipar4.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend/webapp.iml" filepath="$PROJECT_DIR$/backend/webapp.iml" />
     </modules>
   </component>
