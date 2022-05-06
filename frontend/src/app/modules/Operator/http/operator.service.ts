@@ -34,4 +34,12 @@ export class OperatorService {
   public sendSuggestionRequest(suggestionrequest: SuggestionRequest) : Observable<Suggestion>{
     return this.http.post<Suggestion>(this.suggestion, suggestionrequest)
   }
+
+  public sendQuestionAnswer(answer: string) : Observable<string>{
+    return this.http.post<string>(this.question, answer)
+  }
+
+  public sendSuggestionAnswer(answer: string) : Observable<string>{
+    return this.http.post<string>(this.suggestion, answer)
+  }
 }

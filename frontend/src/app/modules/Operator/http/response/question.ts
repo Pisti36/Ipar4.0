@@ -1,6 +1,6 @@
 export class Question{
     id: number;
     description: string;
-    answers: string;
+    answers: string[];
     count: number;
 }
