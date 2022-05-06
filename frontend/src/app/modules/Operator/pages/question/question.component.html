@@ -10,7 +10,7 @@
     </div>
     <div *ngIf= "questionType == 2" class="type2 row justify-content-center">
         <mat-form-field class="optfield">
-            <select matNativeControl required>
+            <select [(ngModel)]="selectedOption" matNativeControl required >
               <option value="1">Opt 1</option>
               <option value="2">Opt 2</option>
               <option value="3">Opt 3</option>

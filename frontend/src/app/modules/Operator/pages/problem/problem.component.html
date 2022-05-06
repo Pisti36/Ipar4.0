@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <mat-form-field class="optfield">
-            <select matNativeControl required>
+            <select [(ngModel)]="selectedOption" matNativeControl required>
               <option value="1">Opt 1</option>
               <option value="2">Opt 2</option>
               <option value="3">Opt 3</option>
@@ -16,7 +16,7 @@
 </div>
 <div class="container mt-3">
     <div class="row justify-content-center">
-        <button type="submit" class="btn btn-primary" routerLink="/question" routerLinkActive="active">OK</button>
+        <button type="submit" class="btn btn-primary" (click) = "sendAnswer()">OK</button>
     </div>
 </div>
 

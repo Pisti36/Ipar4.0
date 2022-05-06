@@ -9,9 +9,10 @@ import { Question } from '../../http/response/question';
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit {
+  selectedOption: string;
   question : Question;
   questiontext: string  = "Kérdés";
-  questionType: number = 1;
+  questionType: number = 2;
   constructor(
     private router: Router,
     private operatorService: OperatorService
@@ -33,7 +34,8 @@ export class QuestionComponent implements OnInit {
   }
 
   sendAnswer(){
-    this.operatorService.sendQuestionAnswer("answer");
+    this.operatorService.sendQuestionAnswer(this.selectedOption);
+    console.log("selectedOption " + this.selectedOption)
     this.toSuggestion();
   }
 
@@ -51,5 +53,5 @@ export class QuestionComponent implements OnInit {
   toSuggestion(){
     this.router.navigate(['/suggestion']);
   }
-  
+
 }

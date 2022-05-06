@@ -11,10 +11,12 @@ import { SuggestionRequest } from './request/suggestionRequest';
 })
 export class OperatorService {
 
+  private problem: string;
   private question: string;
   private suggestion: string;
 
   constructor(private http: HttpClient) { 
+    this.problem = 'http://vm.ik.bme.hu:15206/operator';
     this.question = 'http://vm.ik.bme.hu:15206/question';
     this.suggestion = 'http://vm.ik.bme.hu:15206/suggestion';
   }
@@ -41,5 +43,9 @@ export class OperatorService {
 
   public sendSuggestionAnswer(answer: string) : Observable<string>{
     return this.http.post<string>(this.suggestion, answer)
+  }
+
+  public getProblems() : Observable<string[]>{
+    return this.http.get<string[]>(this.problem)
   }
 }

@@ -6,6 +6,7 @@ import { SuggestionComponent } from './pages/suggestion/suggestion.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProblemComponent } from './pages/problem/problem.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
     { path: '', component: ProblemComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     CommonModule,
     SharedModule,
+    FormsModule
   ],
   exports: [
     QuestionComponent, 
