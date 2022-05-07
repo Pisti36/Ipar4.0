@@ -1,8 +1,8 @@
 package hu.bme.iit.webapp.controller;
 
-import hu.bme.iit.webapp.model.Machine;
+import hu.bme.iit.webapp.model.Machines;
 import hu.bme.iit.webapp.model.MachineType;
-import hu.bme.iit.webapp.service.MachineService;
+import hu.bme.iit.webapp.service.MachinesService;
 import hu.bme.iit.webapp.service.MachineTypeService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,9 +21,9 @@ import java.util.Map;
 public class MachineTypeController {
 
     private MachineTypeService machineTypeService;
-    private MachineService machineService;
+    private MachinesService machineService;
 
-    MachineTypeController(MachineTypeService m, MachineService ms){
+    MachineTypeController(MachineTypeService m, MachinesService ms){
         this.machineTypeService = m;
         this.machineService = ms;
     }
@@ -75,8 +75,8 @@ public class MachineTypeController {
     public @ResponseBody
     Map<String, Boolean> deleteMachineTypeById(@PathVariable(value = "id") Integer id) {
         if ( machineService.findByMachineTypeId(id) != null){
-            List<Machine> machines = machineService.findByMachineTypeId(id);
-            for (Machine m: machines) {
+            List<Machines> machines = machineService.findByMachineTypeId(id);
+            for (Machines m: machines) {
                 machineService.delete(m);
             }
         }

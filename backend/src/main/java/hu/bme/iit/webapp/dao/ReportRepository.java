@@ -1,6 +1,6 @@
 package hu.bme.iit.webapp.dao;
 
-import hu.bme.iit.webapp.model.Machine;
+import hu.bme.iit.webapp.model.Machines;
 import hu.bme.iit.webapp.model.Report;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

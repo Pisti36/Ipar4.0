@@ -11,29 +11,29 @@ import java.util.List;
 @Transactional
 @Service
 public class MachineTypeService {
-    MachineTypeRepository machineTypeRepository;
+    MachineTypeRepository repository;
 
     MachineTypeService(MachineTypeRepository m){
-        this.machineTypeRepository = m;
+        this.repository = m;
     }
 
     public List<MachineType> getAllMachineTypes(){
         List<MachineType> list = new ArrayList<>();
-        machineTypeRepository.findAll().forEach(list::add);
+        repository.findAll().forEach(list::add);
         return list;
     }
 
     public MachineType findById(Integer id) {
-        return machineTypeRepository.findById(id).get();
+        return repository.findById(id).get();
     }
 
     public MachineType save (MachineType machine){
-        machineTypeRepository.save(machine);
+        repository.save(machine);
         return machine;
     }
 
     public void delete(MachineType machine){
-        machineTypeRepository.delete(machine);
+        repository.delete(machine);
     }
 
 }

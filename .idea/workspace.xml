@@ -5,27 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51a02a6-6090-4a64-a0b0-2f3422efab95" name="Changes" comment="Branch setup">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_2_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_api_9_0_33.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_el_api_9_0_33.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_jasper_9_0_33.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_jasper_el_9_0_33.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_9_0_33.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_servlet_api_9_0_33.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_util_9_0_33.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_util_scan_9_0_33.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jdt_ecj_3_18_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_18_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_2_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_2_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_2_4_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_4_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/compile/default-cli/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/compile/default-cli/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/META-INF/build-info.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/controller/DiagramElementController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/controller/MachineController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/controller/MachineTypeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/controller/ReportController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/controller/ReportEventController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/dao/DiagramElementRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/dao/MachineRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/dao/MachineTypeRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/dao/ReportEventRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/dao/ReportRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/domain/MachineStatisticsData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/model/DiagramElement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/model/Machine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/model/MachineType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/model/Report.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/model/ReportEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/service/DiagramElementService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/service/MachineService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/service/MachineTypeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/service/ReportEventService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/service/ReportService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/compile/default-cli/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/compile/default-cli/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-hu.bme.iit.webapp.WebappApplicationTests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/hu.bme.iit.webapp.WebappApplicationTests.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/hu/bme/iit/webapp/WebappApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT-spring-boot.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

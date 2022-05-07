@@ -1,7 +1,7 @@
 package hu.bme.iit.webapp.service;
 
 import hu.bme.iit.webapp.dao.ReportRepository;
-import hu.bme.iit.webapp.model.Machine;
+import hu.bme.iit.webapp.model.Machines;
 import hu.bme.iit.webapp.model.Report;
 import org.springframework.stereotype.Service;
 
@@ -37,9 +37,9 @@ public class ReportService {
         reportRepository.delete(report);
     }
 
-    public List<Report> findFaultsForMachines(List<Machine> machines){
+    public List<Report> findFaultsForMachines(List<Machines> machines){
         List<Report> list = new ArrayList<>();
-        for (Machine m : machines) {
+        for (Machines m : machines) {
             reportRepository.findFaultsForMachines(m.getId()).forEach(list::add);
         }
 

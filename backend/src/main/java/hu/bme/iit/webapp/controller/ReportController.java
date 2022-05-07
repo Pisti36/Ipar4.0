@@ -1,6 +1,6 @@
 package hu.bme.iit.webapp.controller;
 
-import hu.bme.iit.webapp.model.Machine;
+import hu.bme.iit.webapp.model.Machines;
 import hu.bme.iit.webapp.model.Report;
 import hu.bme.iit.webapp.service.ReportService;
 import org.springframework.http.MediaType;
@@ -46,7 +46,7 @@ public class ReportController {
     //TODO
     @PostMapping(path="/statistics")
     public @ResponseBody
-    List<Report> getMachineTypeStatistic(@Valid @RequestBody List<Machine> machines){
+    List<Report> getMachineTypeStatistic(@Valid @RequestBody List<Machines> machines){
             List<Report> faults = reportService.findFaultsForMachines(machines);
             return faults;
     }
