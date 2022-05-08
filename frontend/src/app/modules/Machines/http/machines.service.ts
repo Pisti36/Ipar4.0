@@ -25,11 +25,11 @@ export class MachineService {
     this.machineDelete = 'http://vm.ik.bme.hu:15206/machinetype/list/';
     this.machineListOne = 'http://vm.ik.bme.hu:15206/machinetype/list/';
 
-    this.machineByMachineType = 'http://vm.ik.bme.hu:15206/machine/find/';
-    this.machineById = 'http://vm.ik.bme.hu:15206/machine/find/';
-    this.addMachineEntity = 'http://vm.ik.bme.hu:15206/machine/add';
-    this.editMachineEntity = 'http://vm.ik.bme.hu:15206/machine/list/';
-    this.listMachineEntitiesUrl = 'http://vm.ik.bme.hu:15206/machine/list';
+    this.machineByMachineType = 'http://vm.ik.bme.hu:15206/machines/find/';
+    this.machineById = 'http://vm.ik.bme.hu:15206/machines/find/';
+    this.addMachineEntity = 'http://vm.ik.bme.hu:15206/machines/add';
+    this.editMachineEntity = 'http://vm.ik.bme.hu:15206/machines/list/';
+    this.listMachineEntitiesUrl = 'http://vm.ik.bme.hu:15206/machines/list';
 
   }
 
