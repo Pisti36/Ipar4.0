@@ -14,4 +14,7 @@ public interface NodesRepository extends CrudRepository<Nodes, Integer> {
 
     @Query("SELECT nodes FROM Nodes nodes WHERE nodes.type = :type")
     Optional<List<Nodes>> getNodesByType(@Param("type") String type);
+
+    @Query("SELECT nodes FROM Nodes nodes WHERE nodes.position = :position")
+    Optional<List<Nodes>> getNodesByPosition(@Param("position") String position);
 }

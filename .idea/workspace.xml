@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c51a02a6-6090-4a64-a0b0-2f3422efab95" name="Changes" comment="Backend: added Users table handling" />
+    <list default="true" id="c51a02a6-6090-4a64-a0b0-2f3422efab95" name="Changes" comment="Backend: added Users table handling">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/controller/NodesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/controller/NodesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/dao/NodesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/dao/NodesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/service/NodesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/service/NodesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-hu.bme.iit.webapp.WebappApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-hu.bme.iit.webapp.WebappApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/hu.bme.iit.webapp.WebappApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/surefire-reports/hu.bme.iit.webapp.WebappApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT-spring-boot.jar" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT-spring-boot.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,7 +70,7 @@
       <map>
         <entry key="com.haulmont.jpb.jpaInspector" value="true" />
         <entry key="com.haulmont.jpb.jpaPalette" value="true" />
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
@@ -148,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652088409177</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Backend: added Users table handling">
+      <created>1652088876408</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1652088876408</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

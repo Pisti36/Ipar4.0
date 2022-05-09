@@ -35,6 +35,10 @@ public class NodesService {
         return repository.getNodesByType(type).orElse(null);
     }
 
+    public List<Nodes> findByPosition (String type){
+        return repository.getNodesByPosition(type).orElse(null);
+    }
+
     public Nodes save (Nodes node){
         repository.save(node);
         return node;
