@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c51a02a6-6090-4a64-a0b0-2f3422efab95" name="Changes" comment="Backend Nodes update">
+    <list default="true" id="c51a02a6-6090-4a64-a0b0-2f3422efab95" name="Changes" comment="Backend Report update">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/controller/UsersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/dao/UsersRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/model/Users.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/service/UsersService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/controller/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/controller/ReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/dao/ReportRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/dao/ReportRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/model/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/model/Report.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/service/ReportElementsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/hu/bme/iit/webapp/service/ReportElementsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/dao/ReportRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/dao/ReportRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/model/Report.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/model/Report.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-hu.bme.iit.webapp.WebappApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-hu.bme.iit.webapp.WebappApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/hu.bme.iit.webapp.WebappApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/surefire-reports/hu.bme.iit.webapp.WebappApplicationTests.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT-spring-boot.jar" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT-spring-boot.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +18,14 @@
   </component>
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <favorite-branches>
@@ -139,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652085541465</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Backend Report update">
+      <created>1652086263539</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1652086263539</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -159,6 +167,7 @@
     <MESSAGE value="Branch setup" />
     <MESSAGE value="Backend connected to new DB" />
     <MESSAGE value="Backend Nodes update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Backend Nodes update" />
+    <MESSAGE value="Backend Report update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Backend Report update" />
   </component>
 </project>
