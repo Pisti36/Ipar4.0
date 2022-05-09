@@ -6,7 +6,8 @@
   </div>
 </page-heading>
 <div class="container">
-  <span>Hibák száma összesen: {{faultsCount}}</span>
+  <span>Hibák száma összesen: {{faultsCount}} (Összes)<br>
+  Halszálka hasznossága: {{faultsPercentage}} (Sikeres / Összes)</span>
   <div class="flex" *ngIf="loaded">
     <div class="flex-item">
       <div style="display: block;">

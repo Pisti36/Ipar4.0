@@ -22,6 +22,7 @@ export class LineChartComponent implements OnInit {
   public list: LineChartStatistics[] = [];
   public editedList: LineChartStatistics[]= [];
   public faultsCount = 0;
+  public faultsPercentage = 0;
   public dataArray = [];
   public monthArray = [];
   public loaded = false;
@@ -171,7 +172,7 @@ public lineChartLabels = [];
     console.log(this.commissionDates);
     this.scalingDates();
   }
-  
+
   scalingDates(){
     let commissionDatesSorted = [];
     commissionDatesSorted = this.commissionDates.sort();
@@ -195,7 +196,7 @@ public lineChartLabels = [];
     console.log(this.editedList);
     this.createMonths(this.editedList);
   }
-  
+
   createMonths(list: LineChartStatistics[]){
     const faultTimeDatesList= [];
     let sortedFaultTimeDatesList= [];
@@ -204,16 +205,16 @@ public lineChartLabels = [];
     });
     sortedFaultTimeDatesList = faultTimeDatesList.sort();
     console.log(sortedFaultTimeDatesList);
-  
+
     let commissionDateA = moment(list[0].commissionDate);
     let finalFault = moment(sortedFaultTimeDatesList[sortedFaultTimeDatesList.length-1]);
     const diff = finalFault.diff(commissionDateA, 'months');
     console.log(diff); //14 hónap + az üzembehelyezés
-  
-    let num = 0; 
+
+    let num = 0;
     let dataArray = Array.from(Array(diff+1), ()=>0);
     console.log(dataArray);
-  
+
     this.editedList.forEach(element => {
         let commissionDateB = moment(list[0].commissionDate);
         let fault = moment(element.faultTime);
@@ -239,5 +240,19 @@ public lineChartLabels = [];
     console.log(monthArray);
 
     this.faultsCount = this.editedList.length;
+
+
+
+    if(this.editedList.length > 0){
+      this.reportsList.forEach(element => {
+                                      this.machinesList.forEach(elem => {
+                                       if (element.machineid == elem.id){
+                                        this.faultsPercentage++;
+                                       }
+                                      });
+                                     });
+
+      this.faultsPercentage = this.faultsPercentage / this.editedList.length;
+    }
   }
 }
