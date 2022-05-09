@@ -7,9 +7,7 @@
     <div class="row justify-content-center">
         <mat-form-field class="optfield">
             <select [(ngModel)]="selectedOption" matNativeControl required>
-              <option value="1">Opt 1</option>
-              <option value="2">Opt 2</option>
-              <option value="3">Opt 3</option>
+              <option *ngFor="let problem of problems" value="problem">{{problem}}</option>
             </select>
           </mat-form-field>
     </div>   
