@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping(path="nodes")
+@RequestMapping(path="/nodes")
 @RestController
 @CrossOrigin(origins = "http://vm.ik.bme.hu:10813")
 public class NodesController {
