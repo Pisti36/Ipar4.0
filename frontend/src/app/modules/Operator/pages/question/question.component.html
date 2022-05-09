@@ -1,6 +1,6 @@
 <page-heading>
 <div class="container mt-5 mb-5">
-    <div class="row justify-content-center title text-center" >{{questiontext}}</div> 
+    <div class="row justify-content-center title text-center" >{{question.description}}</div> 
 </div>
 </page-heading>
 <div class="container">
@@ -11,9 +11,7 @@
     <div *ngIf= "questionType == 2" class="type2 row justify-content-center">
         <mat-form-field class="optfield">
             <select [(ngModel)]="selectedOption" matNativeControl required >
-              <option value="1">Opt 1</option>
-              <option value="2">Opt 2</option>
-              <option value="3">Opt 3</option>
+              <option *ngFor="let answer of question.answers" value="answer">{{answer}}</option>
             </select>
           </mat-form-field>
     </div>

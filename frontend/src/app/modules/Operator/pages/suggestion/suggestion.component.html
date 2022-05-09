@@ -1,8 +1,8 @@
 <div *ngIf=ytlinkexists class="row justify-content-center mt-5 videoWrapper" >
-    <iframe *ngIf=ytlinkexists  src="https://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1" frameborder="0" scrolling='no' allow='autoplay' allowfullscreen></iframe>
+    <iframe *ngIf=ytlinkexists  [src]="safeSrc" frameborder="0" scrolling='no' allow='autoplay' allowfullscreen></iframe>
 </div>
 <div class="container mt-5">
-    <h2>{{description}}</h2>
+    <h2>{{suggestion.description}}</h2>
 </div>
 <div class="container solutioncontainer mt-5">
     <h2 class="row justify-content-center title text-center">Megoldódott a probléma?</h2>
