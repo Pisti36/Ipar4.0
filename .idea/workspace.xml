@@ -4,45 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c51a02a6-6090-4a64-a0b0-2f3422efab95" name="Changes" comment="Branch setup">
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/META-INF/build-info.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/controller/DiagramElementController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/controller/MachineController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/controller/MachineTypeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/controller/ReportController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/controller/ReportEventController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/dao/DiagramElementRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/dao/MachineRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/dao/MachineTypeRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/dao/ReportEventRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/dao/ReportRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/domain/MachineStatisticsData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/model/DiagramElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/model/Machine.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/model/MachineType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/model/Report.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/model/ReportEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/service/DiagramElementService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/service/MachineService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/service/MachineTypeService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/service/ReportEventService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/hu/bme/iit/webapp/service/ReportService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/compile/default-cli/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/compile/default-cli/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-hu.bme.iit.webapp.WebappApplicationTests.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/hu.bme.iit.webapp.WebappApplicationTests.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/hu/bme/iit/webapp/WebappApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT-spring-boot.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/webapp-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
-    </list>
+    <list default="true" id="c51a02a6-6090-4a64-a0b0-2f3422efab95" name="Changes" comment="Backend: added Users table handling" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +12,14 @@
   </component>
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <favorite-branches>
@@ -88,9 +58,9 @@
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
-        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
-        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
   </component>
@@ -106,6 +76,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -149,7 +120,35 @@
       <option name="project" value="LOCAL" />
       <updated>1651584480904</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Backend connected to new DB">
+      <created>1651939689506</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1651939689506</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Backend Nodes update">
+      <created>1652085541465</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652085541465</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Backend Report update">
+      <created>1652086263539</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1652086263539</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Backend: added Users table handling">
+      <created>1652088409177</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652088409177</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,6 +166,10 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Branch setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Branch setup" />
+    <MESSAGE value="Backend connected to new DB" />
+    <MESSAGE value="Backend Nodes update" />
+    <MESSAGE value="Backend Report update" />
+    <MESSAGE value="Backend: added Users table handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Backend: added Users table handling" />
   </component>
 </project>

@@ -11,4 +11,7 @@ import java.util.Optional;
 public interface NodesRepository extends CrudRepository<Nodes, Integer> {
     @Query("SELECT nodes FROM Nodes nodes WHERE nodes.machine_type = :id")
     Optional<List<Nodes>> getNodesByMachineType(@Param("id") Integer id);
+
+    @Query("SELECT nodes FROM Nodes nodes WHERE nodes.type = :type")
+    Optional<List<Nodes>> getNodesByType(@Param("type") String type);
 }

@@ -11,7 +11,7 @@ import { ProblemRequest } from '../../http/request/problemRequest';
 export class ProblemComponent implements OnInit {
 
   selectedOption:string;
-  machineproblems: ProblemRequest;
+  problems: string[];
 
   constructor(
     private router: Router,
@@ -19,7 +19,10 @@ export class ProblemComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-      this.operatorService.getProblems
+      this.operatorService.getProblems().subscribe(res => {
+        this.problems = res;
+      });
+        
   }
 
   sendAnswer(){

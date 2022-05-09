@@ -10,9 +10,10 @@ import { Question } from '../../http/response/question';
 })
 export class QuestionComponent implements OnInit {
   selectedOption: string;
-  question : Question;
+  question : Question = new Question();
   questiontext: string  = "Kérdés";
   questionType: number = 2;
+  
   constructor(
     private router: Router,
     private operatorService: OperatorService

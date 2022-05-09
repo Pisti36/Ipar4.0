@@ -16,30 +16,30 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://vm.ik.bme.hu:10813")
 public class ReportController {
-    private ReportService reportService;
+    private ReportService service;
 
     public ReportController(ReportService reportService) {
-        this.reportService = reportService;
+        this.service = reportService;
     }
 
     //Report hozzáadása
     @PostMapping(path="/add", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Report createReport(@Valid @RequestBody Report request){
-        return reportService.save(request);
+        return service.save(request);
     }
 
     //Reportok listázása
     @GetMapping(path="/list")
     public @ResponseBody
     List<Report> getReportsList(){
-        return reportService.getReports();
+        return service.getReports();
     }
 
     //Report keresése id alapján
     @GetMapping(path="/list/{id}")
     public @ResponseBody
     ResponseEntity<Report> getReportById(@PathVariable(value = "id") Integer id) {
-        Report report = reportService.findById(id);
+        Report report = service.findById(id);
         return ResponseEntity.ok().body(report);
     }
 
@@ -47,34 +47,14 @@ public class ReportController {
     @PostMapping(path="/statistics")
     public @ResponseBody
     List<Report> getMachineTypeStatistic(@Valid @RequestBody List<Machines> machines){
-            List<Report> faults = reportService.findFaultsForMachines(machines);
-            return faults;
+        return service.findFaultsForMachines(machines);
     }
 
     @GetMapping(path = "statistics/{id}")
     public @ResponseBody
     ResponseEntity<List<Report>> getReportsByMachineId(@PathVariable(value="id") Integer id){
-        List<Report> reports = reportService.findReportsForMachine(id);
+        List<Report> reports = service.findReportsForMachine(id);
         return ResponseEntity.ok().body(reports);
     }
-    //TODO: ilyen nem kell
-    //DELETE sem kell
-    /*
-    //Report módosítása
-    @PutMapping(path="/list/{id}")
-    public @ResponseBody
-    ResponseEntity<Report> editReport(@PathVariable(value ="id") Integer id,
-                                      @Valid @RequestBody Report reportDetails) {
-        Report report = reportService.findById(id);
-
-        report.setStatus((reportDetails.getStatus()));
-        report.setMachineid(reportDetails.getMachineid());
-        report.setUser(reportDetails.getUser());
-        report.setTime(reportDetails.getTime());
-
-        final Report updatedReport = reportService.save(report);
-        return ResponseEntity.ok().body(updatedReport);
-    }
-    */
 
 }

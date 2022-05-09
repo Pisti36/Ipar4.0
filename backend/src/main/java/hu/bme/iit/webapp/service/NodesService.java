@@ -17,7 +17,7 @@ public class NodesService {
         this.repository = nodesrepository;
     }
 
-    public List<Nodes> getAllQuestions(){
+    public List<Nodes> getAllNodes(){
         List<Nodes> list = new ArrayList<>();
         repository.findAll().forEach(list::add);
         return list;
@@ -27,17 +27,21 @@ public class NodesService {
         return repository.findById(id).orElse(null);
     }
 
-    public List<Nodes> findByDiagramId (Integer machineTypeId){
+    public List<Nodes> findByMachineTypeId (Integer machineTypeId){
         return repository.getNodesByMachineType(machineTypeId).orElse(null);
     }
 
-    public Nodes save (Nodes question){
-        repository.save(question);
-        return question;
+    public List<Nodes> findByType (String type){
+        return repository.getNodesByType(type).orElse(null);
     }
 
-    public void delete(Nodes question){
-        repository.delete(question);
+    public Nodes save (Nodes node){
+        repository.save(node);
+        return node;
+    }
+
+    public void delete(Nodes node){
+        repository.delete(node);
     }
 
 }
