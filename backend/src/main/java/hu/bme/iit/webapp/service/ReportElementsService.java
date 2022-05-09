@@ -40,7 +40,7 @@ public class ReportElementsService {
             //reportEventRepository.getStatisticsByMachineId(re.getId());
             Integer id = repository.getStatisticsByMachineId(re.getId());
             MachineStatisticsData mData = new MachineStatisticsData();
-            mData.setMachineid(re.getMachineid());
+            mData.setMachineid(re.getMachine_id());
             mData.setReport_id(re.getId());
             mData.setStatus(re.getStatus());
             mData.setDiagram_id(id);

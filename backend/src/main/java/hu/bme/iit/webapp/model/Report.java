@@ -4,11 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.Locale;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -17,11 +13,11 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Report {
 
     public Report(){}
-    public Report(Integer id, String status, Integer machineid, String user, Date time) {
+    public Report(Integer id, String status, Integer user_id, Integer machine_id, Date time) {
         this.id = id;
         this.status = status;
-        this.machineid = machineid;
-        this.user = user;
+        this.user_id = user_id;
+        this.machine_id = machine_id;
         this.time = time;
     }
 
@@ -29,8 +25,8 @@ public class Report {
     @GeneratedValue(strategy = IDENTITY)
     private Integer id;
     private String status;
-    private Integer machineid;
-    private String user;
+    private Integer user_id;
+    private Integer machine_id;
     private Date time;
 
     public Integer getId() {
@@ -49,20 +45,20 @@ public class Report {
         this.status = status;
     }
 
-    public Integer getMachineid() {
-        return machineid;
+    public Integer getUser_id() {
+        return user_id;
     }
 
-    public void setMachineid(Integer machineid) {
-        this.machineid = machineid;
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
     }
 
-    public String getUser() {
-        return user;
+    public Integer getMachine_id() {
+        return machine_id;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setMachine_id(Integer machine_id) {
+        this.machine_id = machine_id;
     }
 
     public Date getTime() {
@@ -72,4 +68,5 @@ public class Report {
     public void setTime(Date time) {
         this.time = time;
     }
+
 }
