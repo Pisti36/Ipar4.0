@@ -13,48 +13,56 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping(path="question")
+@RequestMapping(path="nodes")
 @RestController
 @CrossOrigin(origins = "http://vm.ik.bme.hu:10813")
 public class NodesController {
     private NodesService service;
 
-    public NodesController(NodesService questionService) {
-        this.service = questionService;
+    public NodesController(NodesService nodesService) {
+        this.service = nodesService;
     }
 
     @PostMapping(path="/add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Nodes createQuestion(@Valid @RequestBody Nodes request){
+    public Nodes createNode(@Valid @RequestBody Nodes request){
         return service.save(request);
     }
 
-    //Kérdések listázása
+    //Node-ok listázása
     @GetMapping(path="/list")
     public @ResponseBody
-    List<Nodes> getQuestionList(){
-        return service.getAllQuestions();
+    List<Nodes> getNodesList(){
+        return service.getAllNodes();
     }
 
-    //Kérdések keresése id alapján
+    //Node-ok keresése id alapján
     @GetMapping(path="/list/{id}")
     public @ResponseBody
-    ResponseEntity<Nodes> getQuestionById(@PathVariable(value = "id") Integer id) {
-        Nodes question = service.findById(id);
-        return ResponseEntity.ok().body(question);
+    ResponseEntity<Nodes> getNodeById(@PathVariable(value = "id") Integer id) {
+        Nodes node = service.findById(id);
+        return ResponseEntity.ok().body(node);
     }
 
-    //Kérdések keresése diagramId alapján
-    @GetMapping(path = "/find/{diagramId}")
+    //Node-ok keresése machine_type alapján
+    @GetMapping(path = "/find/{machine_type}")
     public @ResponseBody
-    ResponseEntity<List<Nodes>> getQuestionByDiagramId(@PathVariable(value = "diagramId") Integer diagramId) {
-        List<Nodes> questions = service.findByDiagramId(diagramId);
-        return ResponseEntity.ok().body(questions);
+    ResponseEntity<List<Nodes>> findByMachineTypeId(@PathVariable(value = "machine_type") Integer machine_type) {
+        List<Nodes> nodes = service.findByMachineTypeId(machine_type);
+        return ResponseEntity.ok().body(nodes);
     }
 
-    //Kérdés módosítása
+    //Node-ok keresése type alapján
+    @GetMapping(path = "/find_by_type/{type}")
+    public @ResponseBody
+    ResponseEntity<List<Nodes>> findByType(@PathVariable(value = "type") String type) {
+        List<Nodes> nodes = service.findByType(type);
+        return ResponseEntity.ok().body(nodes);
+    }
+
+    //Node módosítása
     @PutMapping(path="/list/{id}")
     public @ResponseBody
-    ResponseEntity<Nodes> editQuestion(@PathVariable(value = "id") Integer id,
+    ResponseEntity<Nodes> editNode(@PathVariable(value = "id") Integer id,
                                           @Valid @RequestBody Nodes nodeDetails) {
         Nodes node = service.findById(id);
 
@@ -68,11 +76,11 @@ public class NodesController {
         node.setImage_link(nodeDetails.getImage_link());
         node.setVideo_link(nodeDetails.getVideo_link());
 
-        final Nodes updatedQuestion = service.save(node);
-        return ResponseEntity.ok().body(updatedQuestion);
+        final Nodes updatedNode = service.save(node);
+        return ResponseEntity.ok().body(updatedNode);
     }
 
-    //Kérdés törlése
+    //Node törlése
     @DeleteMapping(path="/list/{id}")
     public @ResponseBody
     Map<String, Boolean> deleteQuestionById(@PathVariable(value = "id") Integer id) {
@@ -83,12 +91,12 @@ public class NodesController {
         return response;
     }
 
-    //Kérdések törlése diagram alapján
+    //Node-ok törlése machine_type alapján
     @DeleteMapping(path="/delete/{id}")
     public @ResponseBody
-    Map<String, Boolean> deleteQuestionsByDiagramId(@PathVariable(value = "id") Integer diagramId) {
-        List<Nodes> questions = service.findByDiagramId(diagramId);
-        for (Nodes q : questions) {
+    Map<String, Boolean> deleteNodesByMachineTypeId(@PathVariable(value = "id") Integer machine_type) {
+        List<Nodes> nodes = service.findByMachineTypeId(machine_type);
+        for (Nodes q : nodes) {
             service.delete(q);
         }
         Map<String, Boolean> response = new HashMap<>();
@@ -97,10 +105,3 @@ public class NodesController {
     }
 
 }
-
-//getQuestionList
-//getQuestionById
-//getQuestionByMachineTypeId
-//editQuestion
-//deleteQuestionById
-//deleteQuestionsByMachineTypeId
