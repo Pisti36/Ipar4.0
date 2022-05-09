@@ -23,7 +23,7 @@ export class ProblemComponent implements OnInit {
   }
 
   sendAnswer(){
-    this.operatorService.sendQuestionAnswer(this.selectedOption);
+    this.operatorService.sendProblemAnswer(this.selectedOption);
     console.log("selectedOption " + this.selectedOption)
     this.router.navigate(['/question']);
   }

@@ -48,4 +48,8 @@ export class OperatorService {
   public getProblems() : Observable<string[]>{
     return this.http.get<string[]>(this.problem)
   }
+
+  public sendProblemAnswer(answer :string) : Observable<string>{
+    return this.http.post<string>(this.problem, answer )
+  }
 }
