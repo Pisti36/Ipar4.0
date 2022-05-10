@@ -5,6 +5,7 @@ import { Question } from './response/question';
 import { QuestionRequest } from './request/questionRequest';
 import { Suggestion } from './response/suggestion';
 import { SuggestionRequest } from './request/suggestionRequest';
+import { Node } from './request/Node';
 
 @Injectable({
   providedIn: 'root'
@@ -45,8 +46,8 @@ export class OperatorService {
     return this.http.post<string>(this.suggestion, answer)
   }
 
-  public getProblems() : Observable<string[]>{
-    return this.http.get<string[]>(this.problem)
+  public getProblems() : Observable<Node[]>{
+    return this.http.get<Node[]>(this.problem)
   }
 
   public sendProblemAnswer(answer :string) : Observable<string>{

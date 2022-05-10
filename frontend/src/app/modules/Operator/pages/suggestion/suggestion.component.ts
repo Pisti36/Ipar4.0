@@ -51,7 +51,7 @@ export class SuggestionComponent implements OnInit {
 
   sendYesAnswer(){
     this.operatorService.sendQuestionAnswer("yes");
-    console.log("lol");
+    console.log("lolasdad");
     this.toQuestion();
     
   }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MachineService } from 'src/app/modules/Machines/http/machines.service';
+import { MachineEntity } from 'src/app/modules/Machines/http/response/machineEntity';
 import { OperatorService } from '../../http/operator.service';
 
 @Component({
@@ -9,25 +11,34 @@ import { OperatorService } from '../../http/operator.service';
 })
 export class SelectMachineComponent implements OnInit {
 
-  selectedOption:string;
-  machineIDs: string[];
+  public machines = [];
+  public machine_type;
+  selectedMachine:string;
 
   constructor(
     private router : Router, 
-    private operatorService: OperatorService
+    private route : ActivatedRoute,
+    private machineService: MachineService
     ) { }
 
   ngOnInit(): void {
-    this.operatorService.getProblems().subscribe(res => {
-      this.machineIDs = res;
-    });
-      
+    this.getMachines();  
+}
+
+public getMachines(){
+  this.machineService.listMachineEntities().subscribe(data => {
+    this.machines = data;
+    this.selectedMachine = data[0].name;
+  })
+}
+
+selectMachine(machine : MachineEntity){
+  this.machine_type = machine.machineTypeId;
 }
 
 sendAnswer(){
-  this.operatorService.sendProblemAnswer(this.selectedOption);
-  console.log("selectedOption " + this.selectedOption)
-  this.router.navigate(['/problem']);
+  console.log("selectedMachine " + this.selectedMachine)
+  this.router.navigate(['/problem', this.machine_type],{relativeTo: this.route });
 }
 
 }

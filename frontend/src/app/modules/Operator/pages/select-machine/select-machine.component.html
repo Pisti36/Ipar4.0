@@ -6,8 +6,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <mat-form-field class="optfield">
-                <select [(ngModel)]="selectedOption" matNativeControl required>
-                  <option *ngFor="let machineID of machineIDs" value="machineID">{{machineID}}</option>
+                <select [(ngModel)]="selectedMachine" matNativeControl required>
+                  <option *ngFor="let machine of machines" (click)="selectMachine(machine)" value="machine.name">{{machine.name}}</option>
                 </select>
               </mat-form-field>
         </div>   

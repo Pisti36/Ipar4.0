@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OperatorService } from '../../http/operator.service';
-import { ProblemRequest } from '../../http/request/problemRequest';
+import { Node } from '../../http/request/Node';
 
 @Component({
   selector: 'app-problem',
@@ -11,18 +11,23 @@ import { ProblemRequest } from '../../http/request/problemRequest';
 export class ProblemComponent implements OnInit {
 
   selectedOption:string;
-  problems: string[];
+  public problems: Node[];
+  public id;
+
+
 
   constructor(
     private router: Router,
-    private operatorService: OperatorService
+    private operatorService: OperatorService,
+    private route: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
-      this.operatorService.getProblems().subscribe(res => {
-        this.problems = res;
-      });
-        
+    let id = +this.route.snapshot.paramMap.get('id');
+    this.id = id;
+    this.operatorService.getProblems().subscribe(res => {
+      this.problems = res;
+    });
   }
 
   sendAnswer(){
