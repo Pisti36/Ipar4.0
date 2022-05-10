@@ -8,6 +8,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ProblemComponent } from './pages/problem/problem.component';
 import { FormsModule } from '@angular/forms';
 import { SelectMachineComponent } from './pages/select-machine/select-machine.component';
+import { MachineService } from '../Machines/http/machines.service';
+import { OperatorService } from './http/operator.service';
 
 const routes: Routes = [
     { path: '', component: SelectMachineComponent},
@@ -24,8 +26,14 @@ const routes: Routes = [
     SharedModule,
     FormsModule
   ],
+  providers: [
+    MachineService,
+    OperatorService
+  ],
   exports: [
     QuestionComponent, 
+    SuggestionComponent,
+    SelectMachineComponent,
     SuggestionComponent
   ]
 })

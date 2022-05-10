@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MachineService } from 'src/app/modules/Machines/http/machines.service';
-import { MachineEntity } from 'src/app/modules/Machines/http/response/machineEntity';
-import { OperatorService } from '../../http/operator.service';
+import { MachineEntity } from 'src/app/modules/Machines/http/response/machineEntity'; 
 
 @Component({
   selector: 'app-select-machine',
@@ -11,8 +10,8 @@ import { OperatorService } from '../../http/operator.service';
 })
 export class SelectMachineComponent implements OnInit {
 
-  public machines = [];
-  public machine_type;
+  machines: MachineEntity[] = [];
+  machine_type: string;
   selectedMachine:string;
 
   constructor(
@@ -33,7 +32,7 @@ public getMachines(){
 }
 
 selectMachine(machine : MachineEntity){
-  this.machine_type = machine.machineTypeId;
+  this.machine_type = machine.machineTypeId.toString();
 }
 
 sendAnswer(){
