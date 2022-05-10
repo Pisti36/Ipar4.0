@@ -11,7 +11,7 @@ import { MachineEntity } from 'src/app/modules/Machines/http/response/machineEnt
 export class SelectMachineComponent implements OnInit {
 
   machines: MachineEntity[] = [];
-  machine_type: string;
+  machine_type: number;
   selectedMachine:string;
 
   constructor(
@@ -32,7 +32,7 @@ public getMachines(){
 }
 
 selectMachine(machine : MachineEntity){
-  this.machine_type = machine.machineTypeId.toString();
+  this.machine_type = machine.machineTypeId;
 }
 
 sendAnswer(){
