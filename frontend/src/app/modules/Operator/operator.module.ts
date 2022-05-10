@@ -7,15 +7,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProblemComponent } from './pages/problem/problem.component';
 import { FormsModule } from '@angular/forms';
+import { SelectMachineComponent } from './pages/select-machine/select-machine.component';
 
 const routes: Routes = [
-    { path: '', component: ProblemComponent},
+    { path: '', component: SelectMachineComponent},
+    { path: 'problem', component: ProblemComponent},
     { path: 'question', component: QuestionComponent},
     { path: 'suggestion', component: SuggestionComponent},
 ];
 
 @NgModule({
-  declarations: [QuestionComponent, SuggestionComponent, ProblemComponent],
+  declarations: [QuestionComponent, SuggestionComponent, ProblemComponent, SelectMachineComponent],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,

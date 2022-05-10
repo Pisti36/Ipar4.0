@@ -12,7 +12,7 @@ export class QuestionComponent implements OnInit {
   selectedOption: string;
   question : Question = new Question();
   questiontext: string  = "Kérdés";
-  questionType: number = 2;
+  questionType: number = 1;
   
   constructor(
     private router: Router,

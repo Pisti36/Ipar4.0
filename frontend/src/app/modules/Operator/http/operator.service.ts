@@ -16,9 +16,9 @@ export class OperatorService {
   private suggestion: string;
 
   constructor(private http: HttpClient) { 
-    this.problem = 'http://vm.ik.bme.hu:15206/operator';
-    this.question = 'http://vm.ik.bme.hu:15206/question';
-    this.suggestion = 'http://vm.ik.bme.hu:15206/suggestion';
+    this.problem = 'http://vm.ik.bme.hu:10813/nodes/find_by_type/R';
+    this.question = 'http://vm.ik.bme.hu:10813/nodes/find_by_type/Q';
+    this.suggestion = 'http://vm.ik.bme.hu:10813/nodes/find_by_type/I';
   }
 
   public getQuestion() : Observable<Question>{

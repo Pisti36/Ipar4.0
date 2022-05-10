@@ -1,0 +1,20 @@
+<page-heading>
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center title text-center" >Válassza ki a javítandó gépet</div> 
+    </div>
+    </page-heading>
+    <div class="container">
+        <div class="row justify-content-center">
+            <mat-form-field class="optfield">
+                <select [(ngModel)]="selectedOption" matNativeControl required>
+                  <option *ngFor="let machineID of machineIDs" value="machineID">{{machineID}}</option>
+                </select>
+              </mat-form-field>
+        </div>   
+    </div>
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <button type="submit" class="btn btn-primary" (click) = "sendAnswer()">OK</button>
+        </div>
+    </div>
+    
