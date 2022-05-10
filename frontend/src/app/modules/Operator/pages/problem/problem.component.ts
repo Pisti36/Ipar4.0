@@ -11,8 +11,10 @@ import { Node } from '../../http/request/Node';
 export class ProblemComponent implements OnInit {
 
   selectedOption:string;
+  public allrootnodes: Node[];
+  public machine_type;
   public problems: Node[];
-  public id;
+  routePosition: string;
 
 
 
@@ -23,16 +25,24 @@ export class ProblemComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    let id = +this.route.snapshot.paramMap.get('id');
-    this.id = id;
+    let machine_type = +this.route.snapshot.paramMap.get('machine_type');
+    this.machine_type = machine_type;
     this.operatorService.getProblems().subscribe(res => {
-      this.problems = res;
+      this.allrootnodes = res;
+    });
+    this.allrootnodes.forEach(element => {
+      if(element.machine_type == this.machine_type){
+          this.problems.push(element);
+      }
     });
   }
 
+  selectProblem(problem: Node){
+    this.routePosition = problem.position + ".1";
+  }
+
   sendAnswer(){
-    this.operatorService.sendProblemAnswer(this.selectedOption);
     console.log("selectedOption " + this.selectedOption)
-    this.router.navigate(['/question']);
+    this.router.navigate(['/question', this.routePosition], {relativeTo: this.route });
   }
 }

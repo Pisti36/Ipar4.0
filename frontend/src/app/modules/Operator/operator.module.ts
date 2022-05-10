@@ -11,9 +11,9 @@ import { SelectMachineComponent } from './pages/select-machine/select-machine.co
 
 const routes: Routes = [
     { path: '', component: SelectMachineComponent},
-    { path: 'problem', component: ProblemComponent},
-    { path: 'question', component: QuestionComponent},
-    { path: 'suggestion', component: SuggestionComponent},
+    { path: 'problem/:machine_type', component: ProblemComponent},
+    { path: 'question/:position', component: QuestionComponent},
+    { path: 'suggestion/:position', component: SuggestionComponent},
 ];
 
 @NgModule({
