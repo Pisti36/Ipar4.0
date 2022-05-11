@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OperatorService } from '../../http/operator.service';
 import { Node } from '../../http/request/Node';
 
@@ -29,6 +29,7 @@ export class SuggestionComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private operatorService: OperatorService,
     private sanitizer: DomSanitizer
     ) {
@@ -41,26 +42,26 @@ export class SuggestionComponent implements OnInit {
   }
 
   getData(){
-    this.operatorService.getNodesByPosition().subscribe(
+    this.operatorService.getNodesByPosition(this.position).subscribe(
       data=>{
         this.list = data;
         this.convert();
         this.showSuggestions();
         this.getPossibleAnswers();
-        this.list();
+        this.print();
       })
   }
 
   getPossibleAnswers(){
-    answers = question.next.split("\t");
+    this.answers = this.question.next.split("\t");
   }
 
   convert(){
     this.list.forEach(element => {
       if(element.type == "Q"){
-        question = element;
+        this.question = element;
       } else if (element.type == "I"){
-        suggestion = element;
+        this.suggestion = element;
       }
     });
   }
