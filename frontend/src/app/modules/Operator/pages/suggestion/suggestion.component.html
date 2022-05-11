@@ -1,14 +1,31 @@
-<div *ngIf=ytlinkexists class="row justify-content-center mt-5 videoWrapper" >
-    <iframe *ngIf=ytlinkexists  [src]="safeSrc" frameborder="0" scrolling='no' allow='autoplay' allowfullscreen></iframe>
+<div *ngIf=videxists class="row justify-content-center mt-5 frameWrapper" >
+    <iframe *ngIf=videxists  [src]="vidsafeSrc" frameborder="0" scrolling='no' allow='autoplay' allowfullscreen></iframe>
+</div>
+<div *ngIf=imgexists class="row justify-content-center mt-5 frameWrapper" >
+    <iframe *ngIf=imgexists  [src]="imgsafeSrc" frameborder="0" scrolling='no'></iframe>
 </div>
 <div class="container mt-5">
-    <h2>{{suggestion.description}}</h2>
+    <h2>{{suggestion.content}}</h2>
 </div>
-<div class="container solutioncontainer mt-5">
-    <h2 class="row justify-content-center title text-center">Megoldódott a probléma?</h2>
-    <div class="row justify-content-around align-items-bottom mt-5">
+<page-heading>
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center title text-center" >{{question.content}}</div> 
+</div>
+</page-heading>
+<div class="container">
+    <div *ngIf= "questionType == 1" class="row type1 justify-content-around align-items-bottom">
         <button  class="btn btn-primary" (click)="sendYesAnswer()"><i class="fa fa-check"></i> Igen</button>
         <button  class="btn btn-primary" (click)="sendNoAnswer()"><i class="fa fa-close"></i> Nem</button>
     </div>
+    <div *ngIf= "questionType == 2" class="type2 row justify-content-center">
+        <mat-form-field class="optfield">
+            <select [(ngModel)]="selectedOption" matNativeControl required >
+                <option *ngFor="let answer of answers" value="answer">{{answer}}</option>
+            </select>
+            </mat-form-field>
+    </div>
+    <div *ngIf= "questionType == 2" class="type2 row justify-content-center">
+        <button  class="btn btn-primary" (click)="sendAnswer()"> Tovább</button>
+    </div>     
 </div>
 

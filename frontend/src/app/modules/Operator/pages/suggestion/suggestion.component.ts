@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { OperatorService } from '../../http/operator.service';
-import { Suggestion } from '../../http/response/suggestion';
+import { Node } from '../../http/request/Node';
 
 @Component({
   selector: 'app-suggestion',
@@ -10,11 +10,18 @@ import { Suggestion } from '../../http/response/suggestion';
   styleUrls: ['./suggestion.component.scss']
 })
 export class SuggestionComponent implements OnInit {
-  ytlinkexists: boolean = true;
+  videxists: boolean = true;
+  imgexists: boolean = true;
   public video: string = "https://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1";
   description: String = "Leírás";
-  suggestion: Suggestion = new Suggestion();
-  safeSrc: SafeResourceUrl;
+  suggestion: Node = new Node();
+  vidsafeSrc: SafeResourceUrl;
+  imgsafeSrc: SafeResourceUrl;
+  selectedOption: string;
+  question : Node = new Node();
+  questiontext: string  = "Kérdés";
+  questionType: number = 1;
+  answers: string[] = [];
   
   constructor(
     private router: Router,
@@ -26,12 +33,19 @@ export class SuggestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
-    if(this.suggestion.videolink=="" || this.suggestion.videolink==null)
-      this.ytlinkexists=false;
+    if(this.suggestion.video_link=="" || this.suggestion.video_link==null)
+      this.videxists=false;
     else
     {
-      this.ytlinkexists=true;
-      this.safeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(this.suggestion.videolink);
+      this.videxists=true;
+      this.vidsafeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(this.suggestion.video_link);
+    }
+    if(this.suggestion.image_link=="" || this.suggestion.image_link==null)
+      this.imgexists=false;
+    else
+    {
+      this.imgexists=true;
+      this.imgsafeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(this.suggestion.image_link);
     }
       
     
@@ -43,25 +57,36 @@ export class SuggestionComponent implements OnInit {
         this.suggestion = data;
         this.print();
       })
+      this.operatorService.getQuestion().subscribe(data =>{
+        this.question = data;
+        this.print();
+      })
   }
 
   print(){
+    console.log(this.question);
     console.log(this.suggestion);
+  }
+
+  sendAnswer(){
+    this.operatorService.sendQuestionAnswer(this.selectedOption);
+    console.log("selectedOption " + this.selectedOption)
+    this.toSuggestion();
   }
 
   sendYesAnswer(){
     this.operatorService.sendQuestionAnswer("yes");
-    console.log("lolasdad");
-    this.toQuestion();
+    this.toSuggestion();
     
   }
 
   sendNoAnswer(){
     this.operatorService.sendQuestionAnswer("no");
-    this.toQuestion();
+    this.toSuggestion();
   }
 
-  toQuestion(){
-    this.router.navigate(['/question']);
+  toSuggestion(){
+    this.router.navigate(['/suggestion']);
   }
+
 }

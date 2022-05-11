@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { QuestionComponent } from './pages/question/question.component';
 import { SuggestionComponent } from './pages/suggestion/suggestion.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -14,12 +13,11 @@ import { OperatorService } from './http/operator.service';
 const routes: Routes = [
     { path: '', component: SelectMachineComponent},
     { path: 'problem/:machine_type', component: ProblemComponent},
-    { path: 'question/:position', component: QuestionComponent},
     { path: 'suggestion/:position', component: SuggestionComponent},
 ];
 
 @NgModule({
-  declarations: [QuestionComponent, SuggestionComponent, ProblemComponent, SelectMachineComponent],
+  declarations: [SuggestionComponent, ProblemComponent, SelectMachineComponent],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
@@ -31,7 +29,6 @@ const routes: Routes = [
     OperatorService
   ],
   exports: [
-    QuestionComponent, 
     SuggestionComponent,
     SelectMachineComponent,
     SuggestionComponent

@@ -1,4 +1,4 @@
-.videoWrapper {
+.frameWrapper {
     position: relative;
     padding-bottom: 45%; /* proportion value to aspect ratio 16:9 (9 / 16 = 0.5625 or 56.25%) */
     height: 0;
@@ -7,32 +7,42 @@
     width: 80%;
     overflow: hidden;
 }
-
-.videoWrapper iframe {
+.frameWrapper iframe {
     position: absolute;
     top: 0; 
     left: 0;
     width: 100%;
     height: 100%;
 }
-
 .fa-close{
     color: red;
 }
 .fa-check{
     color: #4CAF50;
 }
-.row > *{
-    font-size: xx-large;
-}
-.btn{
-    padding: 10px 20px;
-}
-
 .solutioncontainer{
     padding-bottom: 50px;
 }
 
 .solutioncontainer *{
     font-size: xxx-large;
+}
+
+.title{
+    font-size: xxx-large;
+}
+.type1 > *{
+    font-size: 45px;
+}
+.type2 > *{
+    font-size: xx-large;
+}
+.optfield{
+    width: 75%;
+}
+.btn{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 20px;
+    padding-left: 20px;
 }
