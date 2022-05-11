@@ -63,7 +63,7 @@ public class NodesController {
     @GetMapping(path = "/find_by_position/{type}")
     public @ResponseBody
     ResponseEntity<List<Nodes>> findByPosition(@PathVariable(value = "position") String position) {
-        List<Nodes> nodes = service.findByType(position);
+        List<Nodes> nodes = service.findByPosition(position);
         return ResponseEntity.ok().body(nodes);
     }
 

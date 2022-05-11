@@ -38,6 +38,7 @@ export class SuggestionComponent implements OnInit {
 
   ngOnInit(): void {
     let position = +this.route.snapshot.paramMap.get('position');
+    this.position = position.toString();
     this.getData();
   }
 

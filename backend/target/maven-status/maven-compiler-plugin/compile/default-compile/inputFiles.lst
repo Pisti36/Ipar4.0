@@ -1,26 +1,26 @@
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\controller\NodesController.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\controller\UsersController.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\service\UsersService.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\controller\ReportController.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\service\NodesService.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\dao\ReportRepository.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\dao\MachinesRepository.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\Nodes.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\service\MachinesService.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\Report.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\service\ReportElementsService.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\Users.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\service\ReportService.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\dao\NodesRepository.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\controller\ReportElementsController.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\ReportElements.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\domain\MachineStatisticsData.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\controller\MachineTypeController.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\controller\MachinesController.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\MachineType.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\dao\UsersRepository.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\Machines.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\dao\ReportElementsRepository.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\dao\MachineTypeRepository.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\service\MachineTypeService.java
-C:\Users\Bereczki Ádám\IdeaProjects\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\Application.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\ReportElements.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\Application.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\controller\MachinesController.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\controller\ReportElementsController.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\dao\MachinesRepository.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\domain\MachineStatisticsData.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\Nodes.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\service\MachinesService.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\service\NodesService.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\dao\ReportRepository.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\MachineType.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\service\UsersService.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\dao\ReportElementsRepository.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\dao\NodesRepository.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\service\ReportElementsService.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\Report.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\service\MachineTypeService.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\controller\ReportController.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\dao\MachineTypeRepository.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\controller\MachineTypeController.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\service\ReportService.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\controller\NodesController.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\controller\UsersController.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\Users.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\dao\UsersRepository.java
+E:\Ipar4.0\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\Machines.java
