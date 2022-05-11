@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MachineService } from 'src/app/modules/Machines/http/machines.service';
-import { MachineEntity } from 'src/app/modules/Machines/http/response/machineEntity'; 
+import { MachineEntity } from 'src/app/modules/Machines/http/response/machineEntity';
 
 @Component({
   selector: 'app-select-machine',
@@ -15,13 +15,13 @@ export class SelectMachineComponent implements OnInit {
   selectedMachine:string;
 
   constructor(
-    private router : Router, 
+    private router : Router,
     private route : ActivatedRoute,
     private machineService: MachineService
     ) { }
 
   ngOnInit(): void {
-    this.getMachines();  
+    this.getMachines();
 }
 
 public getMachines(){
@@ -36,7 +36,13 @@ selectMachine(machine : MachineEntity){
 }
 
 sendAnswer(){
-  console.log("selectedMachine " + this.selectedMachine)
+	this.machines.forEach(element => {
+      if(element.name == this.selectedMachine){
+          this.machine_type = element.machineTypeId;
+      }
+    });
+  console.log("selectedMachine: " + this.selectedMachine);
+  console.log("selectedMachineId: " + this.machine_type);
   this.router.navigate(['/problem', this.machine_type],{relativeTo: this.route });
 }
 

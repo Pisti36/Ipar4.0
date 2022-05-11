@@ -1,20 +1,20 @@
 <page-heading>
 <div class="container mt-5 mb-5">
-    <div class="row justify-content-center title text-center" >Válassza ki a gép problémáját</div> 
+    <div class="row justify-content-center title text-center" >Válassza ki a gép problémáját</div>
 </div>
 </page-heading>
 <div class="container">
     <div class="row justify-content-center">
         <mat-form-field class="optfield">
             <select [(ngModel)]="selectedOption" matNativeControl required>
-              <option *ngFor="let problem of problems" (click)="selectProblem(problem)" value="problem.content">{{problem.content}}</option>
+              <option *ngFor="let problem of problems" (click)="selectProblem(problem)" [value]="problem.content">{{problem.content}}</option>
             </select>
           </mat-form-field>
-    </div>   
+    </div>
 </div>
 <div class="container mt-3">
     <div class="row justify-content-center">
-        <button type="submit" class="btn btn-primary" (click) = "sendAnswer()">OK</button>
+        <button type="submit" class="btn btn-primary" [routerLink]="['/question', position]" (click) = "sendAnswer()">OK</button>
     </div>
 </div>
 

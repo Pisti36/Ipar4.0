@@ -13,8 +13,8 @@ export class ProblemComponent implements OnInit {
   selectedOption:string;
   public allrootnodes: Node[];
   public machine_type;
-  public problems: Node[];
-  routePosition: string;
+  public problems: Node[] = [];
+  position: string;
 
 
 
@@ -29,7 +29,13 @@ export class ProblemComponent implements OnInit {
     this.machine_type = machine_type;
     this.operatorService.getProblems().subscribe(res => {
       this.allrootnodes = res;
+      this.selectedOption = res[0].content;
+		  console.log("OptionsGot " + this.allrootnodes);
+      this.problemsByMachineType();
     });
+  }
+
+  problemsByMachineType(){
     this.allrootnodes.forEach(element => {
       if(element.machine_type == this.machine_type){
           this.problems.push(element);
@@ -38,11 +44,19 @@ export class ProblemComponent implements OnInit {
   }
 
   selectProblem(problem: Node){
-    this.routePosition = problem.position + ".1";
+    this.position = problem.position + ".1";
   }
 
   sendAnswer(){
-    console.log("selectedOption " + this.selectedOption)
-    this.router.navigate(['/question', this.routePosition], {relativeTo: this.route });
+    this.problems.forEach(element => {
+        console.log("problems list isnt empty");
+        if(element.content == this.selectedOption){
+            this.position = element.position + ".1";
+            console.log("NewPosition " + this.position);
+        }
+    });
+    console.log("Position " + this.position);
+    console.log("selectedOption " + this.selectedOption);
+    this.router.navigate(['/question', this.position], {relativeTo: this.route });
   }
 }
