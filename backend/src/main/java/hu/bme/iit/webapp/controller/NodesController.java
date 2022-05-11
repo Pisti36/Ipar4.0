@@ -62,8 +62,8 @@ public class NodesController {
     //Node-ok keresése position alapján
     @GetMapping(path = "/find_by_position/{type}")
     public @ResponseBody
-    ResponseEntity<List<Nodes>> findByPosition(@PathVariable(value = "position") String position) {
-        List<Nodes> nodes = service.findByPosition(position);
+    ResponseEntity<List<Nodes>> findByPosition(@PathVariable(value = "type") String type) {
+        List<Nodes> nodes = service.findByPosition(type);
         return ResponseEntity.ok().body(nodes);
     }
 
