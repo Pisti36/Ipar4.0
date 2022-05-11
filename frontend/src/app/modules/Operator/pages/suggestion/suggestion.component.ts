@@ -22,17 +22,54 @@ export class SuggestionComponent implements OnInit {
   questiontext: string  = "Kérdés";
   questionType: number = 1;
   answers: string[] = [];
-  
+  public list: Node[];
+  position: string;
+  answersList: string[] = [];
+
+
   constructor(
     private router: Router,
     private operatorService: OperatorService,
     private sanitizer: DomSanitizer
-    ) { 
-    
+    ) {
+
   }
 
   ngOnInit(): void {
+    let position = +this.route.snapshot.paramMap.get('position');
     this.getData();
+  }
+
+  getData(){
+    this.operatorService.getNodesByPosition().subscribe(
+      data=>{
+        this.list = data;
+        this.convert();
+        this.showSuggestions();
+        this.getPossibleAnswers();
+      })
+  }
+
+  getPossibleAnswers(){
+    answers = question.next.split("\t");
+  }
+
+  convert(){
+    this.list.forEach(element => {
+      if(element.type == "Q"){
+        question = element;
+      } else if (element.type == "I"){
+        suggestion = element;
+      }
+    });
+  }
+
+  print(){
+    console.log(this.question);
+    console.log(this.suggestion);
+  }
+
+  showSuggestions(){
     if(this.suggestion.video_link=="" || this.suggestion.video_link==null)
       this.videxists=false;
     else
@@ -47,25 +84,6 @@ export class SuggestionComponent implements OnInit {
       this.imgexists=true;
       this.imgsafeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(this.suggestion.image_link);
     }
-      
-    
-  }
-
-  getData(){
-    this.operatorService.getSuggestion().subscribe(
-      data=>{
-        this.suggestion = data;
-        this.print();
-      })
-      this.operatorService.getQuestion().subscribe(data =>{
-        this.question = data;
-        this.print();
-      })
-  }
-
-  print(){
-    console.log(this.question);
-    console.log(this.suggestion);
   }
 
   sendAnswer(){
@@ -77,7 +95,7 @@ export class SuggestionComponent implements OnInit {
   sendYesAnswer(){
     this.operatorService.sendQuestionAnswer("yes");
     this.toSuggestion();
-    
+
   }
 
   sendNoAnswer(){

@@ -57,6 +57,6 @@ export class ProblemComponent implements OnInit {
     });
     console.log("Position " + this.position);
     console.log("selectedOption " + this.selectedOption);
-    this.router.navigate(['/question', this.position], {relativeTo: this.route });
+    this.router.navigate(['/suggestion', this.position], {relativeTo: this.route });
   }
 }

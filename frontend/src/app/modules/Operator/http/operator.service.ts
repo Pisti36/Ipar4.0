@@ -15,11 +15,17 @@ export class OperatorService {
   private problem: string;
   private question: string;
   private suggestion: string;
+  private byPosition: string;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.problem = 'http://vm.ik.bme.hu:15206/nodes/find_by_type/R';
     this.question = 'http://vm.ik.bme.hu:15206/nodes/find_by_type/Q';
     this.suggestion = 'http://vm.ik.bme.hu:15206/nodes/find_by_type/I';
+    this.byPosition = 'http://vm.ik.bme.hu:15206/nodes/find_by_position/';
+  }
+
+  public getNodesByPosition(pos: string): Observable<Node[]>{
+      return this.http.get<Node[]>(this.byPosition + pos)
   }
 
   public getQuestion() : Observable<Node>{
