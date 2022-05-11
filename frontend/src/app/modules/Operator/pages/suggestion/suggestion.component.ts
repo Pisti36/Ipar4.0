@@ -47,6 +47,7 @@ export class SuggestionComponent implements OnInit {
         this.convert();
         this.showSuggestions();
         this.getPossibleAnswers();
+        this.list();
       })
   }
 
