@@ -12,20 +12,18 @@ import { Node } from '../../http/request/Node';
 export class SuggestionComponent implements OnInit {
   videxists: boolean = true;
   imgexists: boolean = true;
-  public video: string = "https://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1";
-  description: String = "Leírás";
   suggestion: Node = new Node();
   vidsafeSrc: SafeResourceUrl;
   imgsafeSrc: SafeResourceUrl;
   selectedOption: string;
   question : Node = new Node();
-  questiontext: string  = "Kérdés";
-  questionType: number = 1;
+  questionType: number = 2;
   answers: string[] = [];
   public list: Node[];
   position: string;
   answersList: string[] = [];
-
+  nextPositionsType: string[] = [];
+  public newList: Node[];
 
   constructor(
     private router: Router,
@@ -50,11 +48,38 @@ export class SuggestionComponent implements OnInit {
         this.showSuggestions();
         this.getPossibleAnswers();
         this.print();
+        this.getNewPositions();
       })
   }
 
+  printNextType(){
+    console.log("start Types:");
+    this.nextPositionsType.forEach( element => {
+      console.log(element);
+    })
+    console.log("end Types");
+  }
+
+  getNewPositions(){
+    for(int i = 0; i < this.answersList.length; i++){
+      if(i % 2 !== 0){
+        this.operatorService.getNodesByPosition(this.position).subscribe(
+          data=>{
+                  this.newList = data;
+                  this.nextPositionsType.push(this.newList[0].type);
+          })
+      }
+    }
+  }
+
   getPossibleAnswers(){
-    this.answers = this.question.next.split("\t");
+    this.answersList = this.question.next.split("\t");
+    console.log(this.answersList);
+    for(int i = 0; i < this.answersList.length; i++){
+      if(i % 2 == 0){
+        this.answers.push(this.answersList[i]);
+      }
+    }
   }
 
   convert(){
@@ -73,14 +98,14 @@ export class SuggestionComponent implements OnInit {
   }
 
   showSuggestions(){
-    if(this.suggestion.video_link=="" || this.suggestion.video_link==null)
+    if(this.suggestion.video_link=="na" || this.suggestion.video_link==null || this.suggestion.image_link=="")
       this.videxists=false;
     else
     {
       this.videxists=true;
       this.vidsafeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(this.suggestion.video_link);
     }
-    if(this.suggestion.image_link=="" || this.suggestion.image_link==null)
+    if(this.suggestion.image_link=="na" || this.suggestion.image_link==null || this.suggestion.image_link=="")
       this.imgexists=false;
     else
     {
@@ -90,24 +115,15 @@ export class SuggestionComponent implements OnInit {
   }
 
   sendAnswer(){
-    this.operatorService.sendQuestionAnswer(this.selectedOption);
-    console.log("selectedOption " + this.selectedOption)
-    this.toSuggestion();
+    console.log("selectedOption: " + this.selectedOption)
   }
 
-  sendYesAnswer(){
-    this.operatorService.sendQuestionAnswer("yes");
-    this.toSuggestion();
-
-  }
-
-  sendNoAnswer(){
-    this.operatorService.sendQuestionAnswer("no");
-    this.toSuggestion();
-  }
-
-  toSuggestion(){
-    this.router.navigate(['/suggestion']);
+  boolChooseOne(s: string){
+  if(this.answersList[0] == s){
+        console.log(s +"-el válaszolt! Pos1: " + this.answersList[1]);
+      } else if(this.answersList[2] == s){
+        console.log(s +"-el válaszolt! Pos3: " + this.answersList[3]);
+      }
   }
 
 }
