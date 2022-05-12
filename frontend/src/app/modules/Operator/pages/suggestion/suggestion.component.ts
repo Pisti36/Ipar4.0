@@ -23,7 +23,7 @@ export class SuggestionComponent implements OnInit {
   position: string;
   answersList: string[] = [];
   nextPositionsType: string[] = [];
-  public newList: Node[];
+  public newList: Node[][] = [];
 
   constructor(
     private router: Router,
@@ -47,35 +47,48 @@ export class SuggestionComponent implements OnInit {
         this.convert();
         this.showSuggestions();
         this.getPossibleAnswers();
-        this.print();
         this.getNewPositions();
       })
   }
 
   printNextType(){
     console.log("start Types:");
+    let i = 0;
     this.nextPositionsType.forEach( element => {
-      console.log(element);
+      console.log(element + " pos: " + i);
+      i++;
     })
     console.log("end Types");
   }
 
   getNewPositions(){
-    for(int i = 0; i < this.answersList.length; i++){
+    for(let i = 0; i < this.answersList.length; i++){
       if(i % 2 !== 0){
-        this.operatorService.getNodesByPosition(this.position).subscribe(
+        console.log("pos: " + this.answersList[i]);
+        this.operatorService.getNodesByPosition(this.answersList[i]).subscribe(
           data=>{
-                  this.newList = data;
-                  this.nextPositionsType.push(this.newList[0].type);
+                  this.newList[i] = data;
+				console.log("Request");
+				if(i >= this.answersList.length - 1){
+					this.readNewTypes();
+					this.printNextType();
+				}
           })
       }
     }
   }
 
+  readNewTypes(){
+    for(let i = 0; i < this.newList.length; i++){
+      if(i % 2 !== 0){
+        this.nextPositionsType.push(this.newList[i][0].type);
+      }
+    }
+  }
   getPossibleAnswers(){
     this.answersList = this.question.next.split("\t");
     console.log(this.answersList);
-    for(int i = 0; i < this.answersList.length; i++){
+    for(let i = 0; i < this.answersList.length; i++){
       if(i % 2 == 0){
         this.answers.push(this.answersList[i]);
       }
@@ -90,11 +103,6 @@ export class SuggestionComponent implements OnInit {
         this.suggestion = element;
       }
     });
-  }
-
-  print(){
-    console.log(this.question);
-    console.log(this.suggestion);
   }
 
   showSuggestions(){
@@ -115,15 +123,20 @@ export class SuggestionComponent implements OnInit {
   }
 
   sendAnswer(){
-    console.log("selectedOption: " + this.selectedOption)
+    this.chooseOne(selectedOption);
   }
 
-  boolChooseOne(s: string){
-  if(this.answersList[0] == s){
-        console.log(s +"-el válaszolt! Pos1: " + this.answersList[1]);
-      } else if(this.answersList[2] == s){
-        console.log(s +"-el válaszolt! Pos3: " + this.answersList[3]);
+  chooseOne(s: string){
+    let i = 0;
+    let flag = true;
+    this.answersList.forEach( element => {
+      if(element == s && flag){
+        //itt kell még az új lap megnyitásához ellenőrizni, hogy milyet kell, ha Q vagy I, akkor ugyan ilyet, különben egy másik féle html-t kell
+        console.log(s +"-el válaszolt! Position: " + this.answersList[i] + "\t  Type: " + this.nextPositionsType[Math.ceil(i / 2)]);
+        flag = false;
       }
+      i++;
+    })
   }
 
 }
