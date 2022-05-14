@@ -131,8 +131,17 @@ export class SuggestionComponent implements OnInit {
     let flag = true;
     this.answersList.forEach( element => {
       if(element == s && flag){
-        //itt kell még az új lap megnyitásához ellenőrizni, hogy milyet kell, ha Q vagy I, akkor ugyan ilyet, különben egy másik féle html-t kell
-        console.log(s +"-el válaszolt! Position: " + this.answersList[i] + "\t  Type: " + this.nextPositionsType[Math.ceil(i / 2)]);
+        switch(this.nextPositionsType[Math.ceil(i / 2)]){
+          case "Q", "I": {
+            console.log("Going to the next question and instruction!");
+            //this.router.navigate(['/suggestion', this.answersList[i+1]], {relativeTo: this.route });
+          }
+          case "S", "B": {
+            console.log("Going to the leaf!");
+            //this.router.navigate(['/suggestion', this.answersList[i+1]], {relativeTo: this.route });
+          }
+        }
+        console.log(s +"-el válaszolt! Position: " + this.answersList[i+1] + "\t  Type: " + this.nextPositionsType[Math.ceil(i / 2)]);
         flag = false;
       }
       i++;
