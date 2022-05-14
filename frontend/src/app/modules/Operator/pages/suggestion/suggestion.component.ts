@@ -123,7 +123,7 @@ export class SuggestionComponent implements OnInit {
   }
 
   sendAnswer(){
-    this.chooseOne(selectedOption);
+    this.chooseOne(this.selectedOption);
   }
 
   chooseOne(s: string){
@@ -134,13 +134,11 @@ export class SuggestionComponent implements OnInit {
         switch(this.nextPositionsType[Math.ceil(i / 2)]){
           case "Q": {
             console.log("Going to the next question!");
-            this.router.navigateByUrl('/', { skipLocationChange: true })
-                    .then(() => this.router.navigate(['/suggestion', this.answersList[i+1]], {relativeTo: this.route });
+            this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => this.router.navigate(['/suggestion', this.answersList[i+1]], {relativeTo: this.route });
           }
           case "I": {
             console.log("Going to the next instruction!");
-            this.router.navigateByUrl('/', { skipLocationChange: true })
-                                .then(() => this.router.navigate(['/suggestion', this.answersList[i+1]], {relativeTo: this.route });
+            this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => this.router.navigate(['/suggestion', this.answersList[i+1]], {relativeTo: this.route });
           }
           case "S": {
             console.log("Going to the finish!");
