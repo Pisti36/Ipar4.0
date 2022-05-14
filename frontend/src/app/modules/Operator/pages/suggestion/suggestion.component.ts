@@ -155,12 +155,12 @@ export class SuggestionComponent implements OnInit {
           }
           case "S": {
             console.log("Going to the finish!");
-            //this.router.navigate(['/suggestion', this.answersList[i+1]], {relativeTo: this.route });
+            this.router.navigate(['/leaf', this.answersList[i+1]], {relativeTo: this.route });
             break;
           }
           case "B": {
             console.log("Going to the break!");
-            //this.router.navigate(['/suggestion', this.answersList[i+1]], {relativeTo: this.route });
+            this.router.navigate(['/leaf', this.answersList[i+1]], {relativeTo: this.route });
             break;
           }
         }

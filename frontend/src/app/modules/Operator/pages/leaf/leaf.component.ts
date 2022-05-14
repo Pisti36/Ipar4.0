@@ -85,8 +85,8 @@ constructor(
   sendAnswer(){
     switch(this.leaf.type){
       case "S": {
-            console.log("Done successfully!");
-            this.router.navigate(['/operator', {relativeTo: this.route });
+        console.log("Done successfully!");
+        this.router.navigate(['/operator', {relativeTo: this.route });
         break;
       }
       case "B": {
