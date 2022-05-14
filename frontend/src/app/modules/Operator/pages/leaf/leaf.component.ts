@@ -9,11 +9,11 @@ import { Node } from '../../http/request/Node';
   templateUrl: './leaf.component.html',
   styleUrls: ['./leaf.component.scss']
 })
-export class SuggestionComponent implements OnInit {
+export class LeafComponent implements OnInit {
   position: string;
   public list: Node[];
   leaf : Node = new Node();
-  nextPosition: string = "";
+  nextPosition: string;
   public newList: Node[];
   endOfTree: boolean = false;
 
@@ -27,8 +27,8 @@ constructor(
   }
 
   clearData(){
-    nextPosition: string = "";
-    endOfTree: boolean = false;
+    this.nextPosition = "";
+    this.endOfTree = false;
   }
 
   ngOnInit(): void {
@@ -59,16 +59,16 @@ constructor(
 
   getNext(){
     if(this.leaf.type == "B"){
-      nextPosition = this.leaf.next;
+      this.nextPosition = this.leaf.next;
     } else {
-      nextPosition = "";
+      this.nextPosition = "";
     }
   }
 
   getNewPositions(){
     if(this.leaf.type == "B"){
-      this.operatorService.getNodesByPosition(nextPosition).subscribe(data=>{
-        this.newList[i] = data;
+      this.operatorService.getNodesByPosition(this.nextPosition).subscribe(data=>{
+        this.newList = data;
         this.readNewTypes();
       })
     }
@@ -86,13 +86,13 @@ constructor(
     switch(this.leaf.type){
       case "S": {
         console.log("Done successfully!");
-        this.router.navigate(['/operator', {relativeTo: this.route });
+        this.router.navigate(['/operator'], {relativeTo: this.route });
         break;
       }
       case "B": {
         console.log("Next branch!");
         if(this.endOfTree){
-        this.router.navigate(['/leaf', this.nextPosition, {relativeTo: this.route });
+        this.router.navigate(['/leaf', this.nextPosition], {relativeTo: this.route });
         } else {
           this.router.navigate(['/suggestion', this.nextPosition], {relativeTo: this.route });
         }
@@ -100,7 +100,7 @@ constructor(
       }
       case "E": {
         console.log("No solution for this problem in this tree!");
-        this.router.navigate(['/operator', {relativeTo: this.route });
+        this.router.navigate(['/operator'], {relativeTo: this.route });
         break;
       }
     }

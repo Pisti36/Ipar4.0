@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SuggestionComponent } from './pages/suggestion/leaf.component';
+import { LeafComponent } from './pages/leaf/leaf.component';
 import { SuggestionComponent } from './pages/suggestion/suggestion.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
