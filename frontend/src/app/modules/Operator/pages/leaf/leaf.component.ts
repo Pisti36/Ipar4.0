@@ -1,0 +1,109 @@
+import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
+import { OperatorService } from '../../http/operator.service';
+import { Node } from '../../http/request/Node';
+
+@Component({
+  selector: 'app-leaf',
+  templateUrl: './leaf.component.html',
+  styleUrls: ['./leaf.component.scss']
+})
+export class SuggestionComponent implements OnInit {
+  position: string;
+  public list: Node[];
+  leaf : Node = new Node();
+  nextPosition: string = "";
+  public newList: Node[];
+  endOfTree: boolean = false;
+
+constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private operatorService: OperatorService,
+    private sanitizer: DomSanitizer
+    ) {
+
+  }
+
+  clearData(){
+    nextPosition: string = "";
+    endOfTree: boolean = false;
+  }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      let position = params.position;
+      this.position = position;
+      this.clearData();
+      this.getData();
+      window.scroll(0,0);
+    })
+  }
+
+  getData(){
+    this.operatorService.getNodesByPosition(this.position).subscribe(
+      data=>{
+        this.list = data;
+        this.convert();
+        this.getNext();
+        this.getNewPositions();
+      })
+  }
+
+  convert(){
+    this.list.forEach(element => {
+      this.leaf = element;
+    });
+  }
+
+  getNext(){
+    if(this.leaf.type == "B"){
+      nextPosition = this.leaf.next;
+    } else {
+      nextPosition = "";
+    }
+  }
+
+  getNewPositions(){
+    if(this.leaf.type == "B"){
+      this.operatorService.getNodesByPosition(nextPosition).subscribe(data=>{
+        this.newList[i] = data;
+        this.readNewTypes();
+      })
+    }
+  }
+
+  readNewTypes(){
+    if(this.newList[0].type == "E"){
+      this.endOfTree = true;
+    } else {
+      this.endOfTree = false;
+    }
+  }
+
+  sendAnswer(){
+    switch(this.leaf.type){
+      case "S": {
+            console.log("Done successfully!");
+            this.router.navigate(['/operator', {relativeTo: this.route });
+        break;
+      }
+      case "B": {
+        console.log("Next branch!");
+        if(this.endOfTree){
+          this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => this.router.navigate(['/leaf', this.nextPosition, {relativeTo: this.route }));
+        } else {
+          this.router.navigate(['/suggestion', this.nextPosition], {relativeTo: this.route });
+        }
+        break;
+      }
+      case "E": {
+        console.log("No solution for this problem in this tree!");
+        this.router.navigate(['/operator', {relativeTo: this.route });
+        break;
+      }
+    }
+  }
+
+}

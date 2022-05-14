@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { SuggestionComponent } from './pages/suggestion/leaf.component';
 import { SuggestionComponent } from './pages/suggestion/suggestion.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -14,6 +15,7 @@ const routes: Routes = [
     { path: '', component: SelectMachineComponent},
     { path: 'problem/:machine_type', component: ProblemComponent},
     { path: 'suggestion/:position', component: SuggestionComponent},
+    { path: 'leaf/:position', component: LeafComponent},
 ];
 
 @NgModule({
