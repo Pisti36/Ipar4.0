@@ -34,10 +34,21 @@ export class SuggestionComponent implements OnInit {
 
   }
 
+  clearData(){
+    this.answers = [];
+    this.answersList = [];
+    this.nextPositionsType = [];
+    this.newList = [];
+  }
+
   ngOnInit(): void {
-    let position = +this.route.snapshot.paramMap.get('position');
-    this.position = position.toString();
-    this.getData();
+    this.route.params.subscribe(params => {
+      let position = params.position;
+      this.position = position;
+      this.clearData();
+      this.getData();
+      window.scroll(0,0);
+    })
   }
 
   getData(){
@@ -134,19 +145,23 @@ export class SuggestionComponent implements OnInit {
         switch(this.nextPositionsType[Math.ceil(i / 2)]){
           case "Q": {
             console.log("Going to the next question!");
-            this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => this.router.navigate(['/suggestion', this.answersList[i+1]], {relativeTo: this.route });
+            this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => this.router.navigate(['/suggestion', this.answersList[i+1]], {relativeTo: this.route }));
+            break;
           }
           case "I": {
             console.log("Going to the next instruction!");
-            this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => this.router.navigate(['/suggestion', this.answersList[i+1]], {relativeTo: this.route });
+            this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => this.router.navigate(['/suggestion', this.answersList[i+1]], {relativeTo: this.route }));
+            break;
           }
           case "S": {
             console.log("Going to the finish!");
             //this.router.navigate(['/suggestion', this.answersList[i+1]], {relativeTo: this.route });
+            break;
           }
           case "B": {
             console.log("Going to the break!");
             //this.router.navigate(['/suggestion', this.answersList[i+1]], {relativeTo: this.route });
+            break;
           }
         }
         console.log(s +"-el válaszolt! Position: " + this.answersList[i+1] + "\t  Type: " + this.nextPositionsType[Math.ceil(i / 2)]);
