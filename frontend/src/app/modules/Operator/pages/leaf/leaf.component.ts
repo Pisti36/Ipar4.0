@@ -107,7 +107,7 @@ constructor(
         if(this.endOfTree){
         this.router.navigate(['/leaf', this.nextPosition], {relativeTo: this.route });
         } else {
-          this.router.navigate(['/suggestion', this.nextPosition], {relativeTo: this.route });
+          this.router.navigate(['/suggestion', this.nextPosition, (this.count++)], {relativeTo: this.route });
         }
         break;
       }

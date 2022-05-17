@@ -156,22 +156,22 @@ export class SuggestionComponent implements OnInit {
         switch(this.nextPositionsType[Math.ceil(i / 2)]){
           case "Q": {
             console.log("Going to the next question!");
-            this.router.navigate(['/suggestion', this.answersList[i+1], this.reportID, (this.count + 1)], {relativeTo: this.route });
+            this.router.navigate(['/suggestion', this.answersList[i+1], this.reportID, (this.count++)], {relativeTo: this.route });
             break;
           }
           case "I": {
             console.log("Going to the next instruction!");
-            this.router.navigate(['/suggestion', this.answersList[i+1], this.reportID, (this.count + 1)], {relativeTo: this.route });
+            this.router.navigate(['/suggestion', this.answersList[i+1], this.reportID, (this.count++)], {relativeTo: this.route });
             break;
           }
           case "S": {
             console.log("Going to the finish!");
-            this.router.navigate(['/leaf', this.answersList[i+1], this.reportID, (this.count + 1)], {relativeTo: this.route });
+            this.router.navigate(['/leaf', this.answersList[i+1], this.reportID, (this.count++)], {relativeTo: this.route });
             break;
           }
           case "B": {
             console.log("Going to the break!");
-            this.router.navigate(['/leaf', this.answersList[i+1], this.reportID, (this.count + 1)], {relativeTo: this.route });
+            this.router.navigate(['/leaf', this.answersList[i+1], this.reportID, (this.count++)], {relativeTo: this.route });
             break;
           }
         }
