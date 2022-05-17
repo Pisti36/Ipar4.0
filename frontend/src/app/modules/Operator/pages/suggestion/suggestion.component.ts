@@ -3,7 +3,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OperatorService } from '../../http/operator.service';
 import { Node } from '../../http/request/Node';
-import { ReportEvent } from '../../http/request/ReportEvent';
+import { ReportElement } from '../../http/request/ReportElement';
 
 @Component({
   selector: 'app-suggestion',
@@ -29,7 +29,7 @@ export class SuggestionComponent implements OnInit {
   //report adattagok
   reportID: number;
   count: number;
-  report: ReportEvent;
+  report: ReportElement = new ReportElement();
 
   constructor(
     private router: Router,
@@ -156,22 +156,22 @@ export class SuggestionComponent implements OnInit {
         switch(this.nextPositionsType[Math.ceil(i / 2)]){
           case "Q": {
             console.log("Going to the next question!");
-            this.router.navigate(['/suggestion', this.answersList[i+1], this.reportID, (count + 1)], {relativeTo: this.route });
+            this.router.navigate(['/suggestion', this.answersList[i+1], this.reportID, (this.count + 1)], {relativeTo: this.route });
             break;
           }
           case "I": {
             console.log("Going to the next instruction!");
-            this.router.navigate(['/suggestion', this.answersList[i+1], this.reportID, (count + 1)], {relativeTo: this.route });
+            this.router.navigate(['/suggestion', this.answersList[i+1], this.reportID, (this.count + 1)], {relativeTo: this.route });
             break;
           }
           case "S": {
             console.log("Going to the finish!");
-            this.router.navigate(['/leaf', this.answersList[i+1], this.reportID, (count + 1)], {relativeTo: this.route });
+            this.router.navigate(['/leaf', this.answersList[i+1], this.reportID, (this.count + 1)], {relativeTo: this.route });
             break;
           }
           case "B": {
             console.log("Going to the break!");
-            this.router.navigate(['/leaf', this.answersList[i+1], this.reportID, (count + 1)], {relativeTo: this.route });
+            this.router.navigate(['/leaf', this.answersList[i+1], this.reportID, (this.count + 1)], {relativeTo: this.route });
             break;
           }
         }
@@ -187,7 +187,7 @@ export class SuggestionComponent implements OnInit {
     this.report.count = (this.count + 1);
     this.report.report_id = this.reportID;
     this.report.node_id = this.question.id;
-    this.OperatorService.saveReportElement(this.report);
+    this.operatorService.saveReportElement(this.report);
   }
 
 }

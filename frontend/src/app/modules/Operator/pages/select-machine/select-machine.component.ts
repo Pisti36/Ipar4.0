@@ -15,13 +15,14 @@ export class SelectMachineComponent implements OnInit {
   machines: MachineEntity[] = [];
   machine_type: number;
   selectedMachine:string;
-  report: Report;
+  report: Report = new Report();
   reportId: string;
   reportsList: Report[] = [];
 
   constructor(
     private router : Router,
     private route : ActivatedRoute,
+    private operatorService: OperatorService,
     private machineService: MachineService
     ) { }
 
@@ -47,19 +48,22 @@ sendAnswer(){
       }
     });
   //Report küldése és id lekérdése, majd átadása
-  this.report.status = "Started";
-  this.report.user_id = 10; //(User id here, not yet implemented)
+  this.report.status = "Unsolved";
+  this.report.user_id = 1; //(User id here, not yet implemented)
   this.report.machine_id = this.machine_type;
   this.report.time = new Date(); //Lehet String-ként kellene
-  this.OperatorService.saveReport(this.report);
-  this.OperatorService.getReport(this.machine_type).subscribe( res =>{
+  this.operatorService.saveReport(this.report);
+  console.log("machine_id: = " + this.machine_type);
+  console.log("selectedMachine: = " + this.selectedMachine);
+  console.log("reportId: = " + this.reportId);
+  this.operatorService.getReport(this.machine_type).subscribe( res =>{
     this.reportsList = res;
     this.nextHTML();
   });
 }
 
 nextHTML(){
-  this.reportId = this.reportsList[this.reportsList.length()-1].id;
+  this.reportId = this.reportsList[this.reportsList.length-1].id.toString();
   console.log("new id = " + this.reportId);
   console.log("selectedMachine: " + this.selectedMachine);
   console.log("selectedMachineId: " + this.machine_type);

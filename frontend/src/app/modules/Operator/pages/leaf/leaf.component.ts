@@ -3,7 +3,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OperatorService } from '../../http/operator.service';
 import { Node } from '../../http/request/Node';
-import { ReportEvent } from '../../http/request/ReportEvent';
+import { ReportElement } from '../../http/request/ReportElement';
 
 @Component({
   selector: 'app-leaf',
@@ -20,7 +20,7 @@ export class LeafComponent implements OnInit {
 
   reportID: number;
   count: number;
-  report: ReportEvent;
+  report: ReportElement = new ReportElement();
 
 
 constructor(
@@ -131,7 +131,7 @@ constructor(
       this.report.count = (this.count + 1);
       this.report.report_id = this.reportID;
       this.report.node_id = this.leaf.id;
-      this.OperatorService.saveReportElement(this.report);
+      this.operatorService.saveReportElement(this.report);
     }
 
 }

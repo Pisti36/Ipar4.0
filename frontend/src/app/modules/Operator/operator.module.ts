@@ -19,7 +19,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [SuggestionComponent, ProblemComponent, SelectMachineComponent],
+  declarations: [SuggestionComponent, ProblemComponent, SelectMachineComponent, LeafComponent],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
@@ -33,7 +33,8 @@ const routes: Routes = [
   exports: [
     SuggestionComponent,
     SelectMachineComponent,
-    SuggestionComponent
+    SuggestionComponent,
+    LeafComponent
   ]
 })
 export class OperatorModule { }

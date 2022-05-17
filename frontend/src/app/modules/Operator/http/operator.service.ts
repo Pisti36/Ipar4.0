@@ -19,7 +19,7 @@ export class OperatorService {
   private suggestion: string;
   private byPosition: string;
 
-  private getReport: string;
+  private report: string;
   private addReport: string;
   private addReportElement: string;
 
@@ -29,7 +29,7 @@ export class OperatorService {
     this.suggestion = 'http://vm.ik.bme.hu:15206/nodes/find_by_type/I';
     this.byPosition = 'http://vm.ik.bme.hu:15206/nodes/find_by_position/';
 
-    this.getReport = 'http://vm.ik.bme.hu:15206/report/statistics/';
+    this.report = 'http://vm.ik.bme.hu:15206/report/statistics/';
     this.addReport = 'http://vm.ik.bme.hu:15206/report/add/';
     this.addReportElement = 'http://vm.ik.bme.hu:15206/reportevent/add/';
   }
@@ -49,7 +49,7 @@ export class OperatorService {
   }
 
   public getReport(pos: number): Observable<Report[]>{
-        return this.http.get<Report[]>(this.getReport + pos)
+        return this.http.get<Report[]>(this.report + pos)
     }
 
   public getNodesByPosition(pos: string): Observable<Node[]>{

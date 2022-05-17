@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OperatorService } from '../../http/operator.service';
 import { Node } from '../../http/request/Node';
-import { ReportEvent } from '../../http/request/ReportEvent';
+import { ReportElement } from '../../http/request/ReportElement';
 
 @Component({
   selector: 'app-problem',
@@ -16,7 +16,7 @@ export class ProblemComponent implements OnInit {
   public machine_type;
   public problems: Node[] = [];
   position: string;
-  report: ReportEvent;
+  report: ReportElement = new ReportElement();
   reportID: number;
 
 
@@ -64,13 +64,14 @@ export class ProblemComponent implements OnInit {
     });
     console.log("Position " + this.position);
     console.log("selectedOption " + this.selectedOption);
+    this.sendReport();
     this.router.navigate(['/suggestion', this.position, this.reportID, 1], {relativeTo: this.route });
   }
 
   sendReport(){
     this.report.count = 1;
-    this.report.report_id = reportID;
-    this.OperatorService.saveReportElement(this.report);
+    this.report.report_id = this.reportID;
+    this.operatorService.saveReportElement(this.report);
   }
 
 }
