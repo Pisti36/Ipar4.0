@@ -3,6 +3,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OperatorService } from '../../http/operator.service';
 import { Node } from '../../http/request/Node';
+import { ReportEvent } from '../../http/request/ReportEvent';
 
 @Component({
   selector: 'app-leaf',
@@ -16,6 +17,11 @@ export class LeafComponent implements OnInit {
   nextPosition: string;
   public newList: Node[];
   endOfTree: boolean = false;
+
+  reportID: number;
+  count: number;
+  report: ReportEvent;
+
 
 constructor(
     private router: Router,
@@ -35,6 +41,10 @@ constructor(
     this.route.params.subscribe(params => {
       let position = params.position;
       this.position = position;
+      let repID = params.report;
+      this.reportID = repID;
+      let c = params.count;
+      this.count = c;
       this.clearData();
       this.getData();
       window.scroll(0,0);
@@ -83,10 +93,13 @@ constructor(
   }
 
   sendAnswer(){
+    this.postReport();
     switch(this.leaf.type){
       case "S": {
         console.log("Done successfully!");
         this.router.navigate(['/operator'], {relativeTo: this.route });
+        //Modify report
+        this.updateReport("Sikeresen ért véget!");
         break;
       }
       case "B": {
@@ -101,9 +114,24 @@ constructor(
       case "E": {
         console.log("No solution for this problem in this tree!");
         this.router.navigate(['/operator'], {relativeTo: this.route });
+        //Modify report
+        this.updateReport("Sikertelenül ért véget!");
         break;
       }
     }
   }
+
+  updateReport(message: string){
+    //Update Report in database
+    //Backend doesn't support it yet
+  }
+
+  postReport(){
+      this.report.answer = this.leaf.content;
+      this.report.count = (this.count + 1);
+      this.report.report_id = this.reportID;
+      this.report.node_id = this.leaf.id;
+      this.OperatorService.saveReportElement(this.report);
+    }
 
 }

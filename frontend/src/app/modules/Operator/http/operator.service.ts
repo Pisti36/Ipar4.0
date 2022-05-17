@@ -6,6 +6,8 @@ import { QuestionRequest } from './request/questionRequest';
 import { Suggestion } from './response/suggestion';
 import { SuggestionRequest } from './request/suggestionRequest';
 import { Node } from './request/Node';
+import { Report } from './request/Report';
+import { ReportElement } from './request/ReportElement';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +19,38 @@ export class OperatorService {
   private suggestion: string;
   private byPosition: string;
 
+  private getReport: string;
+  private addReport: string;
+  private addReportElement: string;
+
   constructor(private http: HttpClient) {
     this.problem = 'http://vm.ik.bme.hu:15206/nodes/find_by_type/R';
     this.question = 'http://vm.ik.bme.hu:15206/nodes/find_by_type/Q';
     this.suggestion = 'http://vm.ik.bme.hu:15206/nodes/find_by_type/I';
     this.byPosition = 'http://vm.ik.bme.hu:15206/nodes/find_by_position/';
+
+    this.getReport = 'http://vm.ik.bme.hu:15206/report/statistics/';
+    this.addReport = 'http://vm.ik.bme.hu:15206/report/add/';
+    this.addReportElement = 'http://vm.ik.bme.hu:15206/reportevent/add/';
   }
+
+  public saveReportElement(reportElement: ReportElement) {
+   return this.http.post<ReportElement>(this.addReportElement, reportElement).subscribe(
+    (res) => console.log(res),
+    (err) => console.log(err),
+  );
+  }
+
+  public saveReport(report: Report) {
+   return this.http.post<Report>(this.addReport, report).subscribe(
+    (res) => console.log(res),
+    (err) => console.log(err),
+  );
+  }
+
+  public getReport(pos: number): Observable<Report[]>{
+        return this.http.get<Report[]>(this.getReport + pos)
+    }
 
   public getNodesByPosition(pos: string): Observable<Node[]>{
       return this.http.get<Node[]>(this.byPosition + pos)

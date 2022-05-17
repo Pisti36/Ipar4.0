@@ -13,9 +13,9 @@ import { OperatorService } from './http/operator.service';
 
 const routes: Routes = [
     { path: '', component: SelectMachineComponent},
-    { path: 'problem/:machine_type', component: ProblemComponent},
-    { path: 'suggestion/:position', component: SuggestionComponent},
-    { path: 'leaf/:position', component: LeafComponent},
+    { path: 'problem/:machine_type/:report', component: ProblemComponent},
+    { path: 'suggestion/:position/:report/:count', component: SuggestionComponent},
+    { path: 'leaf/:position/:report/:count', component: LeafComponent},
 ];
 
 @NgModule({
