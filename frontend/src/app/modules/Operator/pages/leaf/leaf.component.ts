@@ -105,9 +105,9 @@ constructor(
       case "B": {
         console.log("Next branch!");
         if(this.endOfTree){
-        this.router.navigate(['/leaf', this.nextPosition, (this.count++)], {relativeTo: this.route });
+        this.router.navigate(['/leaf', this.nextPosition, this.reportID, (this.count++)], {relativeTo: this.route });
         } else {
-          this.router.navigate(['/suggestion', this.nextPosition, (this.count++)], {relativeTo: this.route });
+          this.router.navigate(['/suggestion', this.nextPosition, this.reportID, (this.count++)], {relativeTo: this.route });
         }
         break;
       }
