@@ -52,7 +52,13 @@ sendAnswer(){
   this.report.user_id = 1; //(User id here, not yet implemented)
   this.report.machine_id = this.machine_type;
   this.report.time = new Date(); //Lehet String-ként kellene
-  this.operatorService.saveReport(this.report);
+  this.operatorService.saveReport({
+		  "id" : this.report.id,
+		  "status" : this.report.status,
+		  "user_id" : this.report.user_id,
+		  "machine_id" : this.report.machine_id,
+		  "time" : this.report.time
+	  });
   console.log("machine_id: = " + this.machine_type);
   console.log("selectedMachine: = " + this.selectedMachine);
   console.log("reportId: = " + this.reportId);

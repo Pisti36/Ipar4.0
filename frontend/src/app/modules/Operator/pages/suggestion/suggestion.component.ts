@@ -109,6 +109,7 @@ export class SuggestionComponent implements OnInit {
   getPossibleAnswers(){
     this.answersList = this.question.next.split("\t");
     console.log(this.answersList);
+	this.answers = [];
     for(let i = 0; i < this.answersList.length; i++){
       if(i % 2 == 0){
         this.answers.push(this.answersList[i]);
@@ -187,7 +188,13 @@ export class SuggestionComponent implements OnInit {
     this.report.count = (this.count + 1);
     this.report.report_id = this.reportID;
     this.report.node_id = this.question.id;
-    this.operatorService.saveReportElement(this.report);
+    this.operatorService.saveReportElement({
+		  "id" : this.report.id,
+		  "answer" : this.report.answer,
+		  "count" : this.report.count,
+		  "report_id" : this.report.report_id,
+		  "node_id" : this.report.node_id
+	  });
   }
 
 }
