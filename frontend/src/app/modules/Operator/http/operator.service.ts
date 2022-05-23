@@ -35,14 +35,14 @@ export class OperatorService {
   }
 
   public saveReportElement(reportElement: ReportElement) {
-   return this.http.post<ReportElement>(this.addReportElement, reportElement).subscribe(
+   return this.http.post<ReportElement>(this.addReportElement, JSON.parse(JSON.stringify(reportElement))).subscribe(
     (res) => console.log(res),
     (err) => console.log(err),
   );
   }
 
   public saveReport(report: Report) {
-   return this.http.post<Report>(this.addReport, report).subscribe(
+   return this.http.post<Report>(this.addReport, JSON.parse(JSON.stringify(report))).subscribe(
     (res) => console.log(res),
     (err) => console.log(err),
   );

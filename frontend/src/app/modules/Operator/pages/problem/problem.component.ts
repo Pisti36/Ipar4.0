@@ -71,7 +71,13 @@ export class ProblemComponent implements OnInit {
   sendReport(){
     this.report.count = 1;
     this.report.report_id = this.reportID;
-    this.operatorService.saveReportElement(this.report);
+    this.operatorService.saveReportElement({
+		  "id" : this.report.id,
+		  "answer" : this.report.answer,
+		  "count" : this.report.count,
+		  "report_id" : this.report.report_id,
+		  "node_id" : this.report.node_id
+	  });
   }
 
 }
