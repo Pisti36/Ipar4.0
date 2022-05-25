@@ -26,8 +26,7 @@ export class LeafComponent implements OnInit {
 constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private operatorService: OperatorService,
-    private sanitizer: DomSanitizer
+    private operatorService: OperatorService
     ) {
 
   }
