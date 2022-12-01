@@ -1,9 +1,11 @@
 hu\bme\iit\webapp\model\MachineType.class
 hu\bme\iit\webapp\service\ReportElementsService.class
+hu\bme\iit\webapp\controller\StatisticsController.class
 hu\bme\iit\webapp\controller\ReportElementsController.class
 hu\bme\iit\webapp\service\ReportService.class
 hu\bme\iit\webapp\model\ReportElements.class
 hu\bme\iit\webapp\service\NodesService.class
+hu\bme\iit\webapp\model\MachineTypeStatistics.class
 hu\bme\iit\webapp\controller\UsersController.class
 hu\bme\iit\webapp\dao\UsersRepository.class
 hu\bme\iit\webapp\domain\MachineStatisticsData.class
@@ -17,6 +19,7 @@ hu\bme\iit\webapp\model\Machines.class
 hu\bme\iit\webapp\model\Users.class
 hu\bme\iit\webapp\Application.class
 hu\bme\iit\webapp\model\Report.class
+hu\bme\iit\webapp\service\StatisticsService.class
 hu\bme\iit\webapp\controller\MachinesController.class
 hu\bme\iit\webapp\dao\MachinesRepository.class
 hu\bme\iit\webapp\controller\NodesController.class

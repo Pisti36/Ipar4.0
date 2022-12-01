@@ -2,6 +2,7 @@ package hu.bme.iit.webapp.controller;
 
 import hu.bme.iit.webapp.model.Machines;
 import hu.bme.iit.webapp.model.Report;
+import hu.bme.iit.webapp.model.Statistics;
 import hu.bme.iit.webapp.service.ReportService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -25,6 +27,9 @@ public class ReportController {
     //Report hozzáadása
     @PostMapping(path="/add", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Report createReport(@Valid @RequestBody Report request){
+        request.setId(null);
+        request.setEndTime(null);
+        request.setLastNode(null);
         return service.save(request);
     }
 
@@ -43,6 +48,11 @@ public class ReportController {
         return ResponseEntity.ok().body(report);
     }
 
+    @PutMapping(path="/add", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Report updateReport(@Valid @RequestBody Report request){
+        return service.save(request);
+    }
+
     //TODO
     @PostMapping(path="/statistics")
     public @ResponseBody
@@ -50,7 +60,7 @@ public class ReportController {
         return service.findFaultsForMachines(machines);
     }
 
-    @GetMapping(path = "statistics/{id}")
+    @GetMapping(path = "/{id}")
     public @ResponseBody
     ResponseEntity<List<Report>> getReportsByMachineId(@PathVariable(value="id") Integer id){
         List<Report> reports = service.findReportsForMachine(id);

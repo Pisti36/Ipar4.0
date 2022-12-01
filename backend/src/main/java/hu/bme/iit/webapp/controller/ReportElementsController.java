@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping(path="reportevent")
+@RequestMapping(path="/reportevent")
 @RestController
 @CrossOrigin(origins = "http://vm.ik.bme.hu:10813")
 public class ReportElementsController {
@@ -44,6 +44,12 @@ public class ReportElementsController {
         return ResponseEntity.ok().body(reportEvent);
     }
 
+    @GetMapping(path="/statistics/machine/{id}")
+    public @ResponseBody
+    ResponseEntity<List<ReportElements>> getReportEventByMachine(@PathVariable(value = "id") Integer id) {
+        List<ReportElements> reportElements= service.findReportElementsByMachine(id);
+        return ResponseEntity.ok().body(reportElements);
+    }
     @PostMapping(path = "/statisticsformachines")
     public @ResponseBody
     ResponseEntity<List<MachineStatisticsData>> getStatisticsByMachineId(@Valid @RequestBody List<Report> reports){

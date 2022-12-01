@@ -25,11 +25,15 @@ export class SuggestionComponent implements OnInit {
   answersList: string[] = [];
   nextPositionsType: string[] = [];
   public newList: Node[][] = [];
+  private lock: boolean = false;
+  
 
   //report adattagok
   reportID: number;
   count: number;
   report: ReportElement = new ReportElement();
+  startTime: Date;
+  summary: string;
 
   constructor(
     private router: Router,
@@ -45,20 +49,23 @@ export class SuggestionComponent implements OnInit {
     this.answersList = [];
     this.nextPositionsType = [];
     this.newList = [];
+    console.log("Data cleared");
   }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      let position = params.position;
-      this.position = position;
+      let pos = params.position;
+      this.position = pos;
       let repID = params.report;
-      this.reportID = repID;
+      this.reportID = Number(repID);
       let c = params.count;
-      this.count = c;
+      this.count = Number(c);
       this.clearData();
       this.getData();
       window.scroll(0,0);
     })
+    
+    this.startTime = new Date();
   }
 
   getData(){
@@ -84,26 +91,27 @@ export class SuggestionComponent implements OnInit {
 
   getNewPositions(){
     for(let i = 0; i < this.answersList.length; i++){
-      if(i % 2 !== 0){
+      if(i % 2 !== 0 ){
         console.log("pos: " + this.answersList[i]);
         this.operatorService.getNodesByPosition(this.answersList[i]).subscribe(
           data=>{
-                  this.newList[i] = data;
-				console.log("Request");
-				if(i >= this.answersList.length - 1){
-					this.readNewTypes();
-					this.printNextType();
-				}
+                  this.newList[Math.ceil(i/2)-1] = data;
+                  console.log("New List Data: " + (Math.ceil(i/2)-1))
+                  console.log(data);
+				  console.log("Request"); 
+          this.readNewTypes();
+          this.printNextType();
           })
-      }
+        }
     }
   }
 
   readNewTypes(){
+    this.nextPositionsType = [];
     for(let i = 0; i < this.newList.length; i++){
-      if(i % 2 !== 0){
+      console.log("New list " + i + ". tagja: ")
+      console.log(this.newList[i])
         this.nextPositionsType.push(this.newList[i][0].type);
-      }
     }
   }
   getPossibleAnswers(){
@@ -148,31 +156,32 @@ export class SuggestionComponent implements OnInit {
     this.chooseOne(this.selectedOption);
   }
 
-  chooseOne(s: string){
+  async chooseOne(s: string){
     let i = 0;
     let flag = true;
-    this.postReport(s);
+    await this.postReport(s);
+    console.log( "Type: " + Math.ceil(i / 2));
     this.answersList.forEach( element => {
       if(element == s && flag){
         switch(this.nextPositionsType[Math.ceil(i / 2)]){
           case "Q": {
             console.log("Going to the next question!");
-            this.router.navigate(['/suggestion', this.answersList[i+1], this.reportID, (this.count++)], {relativeTo: this.route });
+            this.router.navigate(['/suggestion', this.answersList[i+1], this.reportID, (++this.count)], {relativeTo: this.route });
             break;
           }
           case "I": {
             console.log("Going to the next instruction!");
-            this.router.navigate(['/suggestion', this.answersList[i+1], this.reportID, (this.count++)], {relativeTo: this.route });
+            this.router.navigate(['/suggestion', this.answersList[i+1], this.reportID, (++this.count)], {relativeTo: this.route });
             break;
           }
           case "S": {
             console.log("Going to the finish!");
-            this.router.navigate(['/leaf', this.answersList[i+1], this.reportID, (this.count++)], {relativeTo: this.route });
+            this.router.navigate(['/leaf', this.answersList[i+1], this.reportID, (++this.count)], {relativeTo: this.route });
             break;
           }
           case "B": {
             console.log("Going to the break!");
-            this.router.navigate(['/leaf', this.answersList[i+1], this.reportID, (this.count++)], {relativeTo: this.route });
+            this.router.navigate(['/leaf', this.answersList[i+1], this.reportID, (++this.count)], {relativeTo: this.route });
             break;
           }
         }
@@ -184,17 +193,22 @@ export class SuggestionComponent implements OnInit {
   }
 
   postReport(answer: string){
-    this.report.answer = answer;
     this.report.count = (this.count + 1);
     this.report.report_id = this.reportID;
     this.report.node_id = this.question.id;
+    this.report.duration = (new Date().getTime() - this.startTime.getTime())/1000;
+    //this.report.summary = this.suggestion.summary;
     this.operatorService.saveReportElement({
-		  "id" : this.report.id,
-		  "answer" : this.report.answer,
-		  "count" : this.report.count,
+		  "id" : null,
 		  "report_id" : this.report.report_id,
-		  "node_id" : this.report.node_id
-	  });
+		  "node_id" : this.report.node_id,
+		  "count" : this.report.count,
+      "summary" : this.report.summary,
+      "duration" : this.report.duration
+	  }).subscribe(
+      (res)=>{this.report = res; console.log(res)},
+      (err)=>{console.log(err)}
+    );
   }
 
 }

@@ -7,6 +7,7 @@ import { Question } from './response/question';
 @Injectable()
 export class FaultDiagramService {
 
+  private backendURL: string;
   private diagramListUrl: string;
   private diagramAddUrl: string;
   private diagramDeleteUrl: string;
@@ -16,13 +17,14 @@ export class FaultDiagramService {
   private diagramsByMachineTypeUrl: string;
 
   constructor(private http: HttpClient) {
-    this.diagramListUrl = 'http://vm.ik.bme.hu:15206/faultdiagram/list';
-    this.diagramAddUrl = 'http://vm.ik.bme.hu:15206/faultdiagram/add';
-    this.diagramDeleteUrl = 'http://vm.ik.bme.hu:15206/faultdiagram/list/';
-    this.questionByMachineTypeUrl = 'http://vm.ik.bme.hu:15206/question/find/'
-    this.editQuestionUrl = 'http://vm.ik.bme.hu:15206/question/list/'
-    this.saveQuestionUrl = 'http://vm.ik.bme.hu:15206/question/add'
-    this.diagramsByMachineTypeUrl = 'http://vm.ik.bme.hu:15206/faultdiagram/diagrams/'
+    this.backendURL = 'http://vm.ik.bme.hu:15206'
+    this.diagramListUrl = this.backendURL + '/faultdiagram/list';
+    this.diagramAddUrl = this.backendURL + '/faultdiagram/add';
+    this.diagramDeleteUrl = this.backendURL + '/faultdiagram/list/';
+    this.questionByMachineTypeUrl = this.backendURL + '/question/find/'
+    this.editQuestionUrl = this.backendURL + '/question/list/'
+    this.saveQuestionUrl = this.backendURL + '/question/add'
+    this.diagramsByMachineTypeUrl = this.backendURL + '/faultdiagram/diagrams/'
   }
 
   public findAll(): Observable<FaultDiagram[]> {

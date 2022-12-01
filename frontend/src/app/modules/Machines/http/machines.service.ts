@@ -8,6 +8,7 @@ import { MachineTypeRequest } from './request/machineTypeRequest';
 @Injectable()
 export class MachineService {
 
+  private backendURL: string;
   private machineList: string;
   private machineAdd: string;
   private machineDelete: string;
@@ -20,16 +21,17 @@ export class MachineService {
   private listMachineEntitiesUrl: string;
 
   constructor(private http: HttpClient) {
-    this.machineList = 'http://vm.ik.bme.hu:15206/machinetype/count';
-    this.machineAdd = 'http://vm.ik.bme.hu:15206/machinetype/add';
-    this.machineDelete = 'http://vm.ik.bme.hu:15206/machinetype/list/';
-    this.machineListOne = 'http://vm.ik.bme.hu:15206/machinetype/list/';
+    this.backendURL = 'http://vm.ik.bme.hu:15206';
+    this.machineList = this.backendURL + '/machinetype/count';
+    this.machineAdd = this.backendURL + '/machinetype/add';
+    this.machineDelete = this.backendURL + '/machinetype/list/';
+    this.machineListOne = this.backendURL + '/machinetype/list/';
 
-    this.machineByMachineType = 'http://vm.ik.bme.hu:15206/machines/find/';
-    this.machineById = 'http://vm.ik.bme.hu:15206/machines/find/';
-    this.addMachineEntity = 'http://vm.ik.bme.hu:15206/machines/add';
-    this.editMachineEntity = 'http://vm.ik.bme.hu:15206/machines/list/';
-    this.listMachineEntitiesUrl = 'http://vm.ik.bme.hu:15206/machines/list';
+    this.machineByMachineType = this.backendURL + '/machines/find/';
+    this.machineById = this.backendURL + '/machines/find/';
+    this.addMachineEntity = this.backendURL + '/machines/add';
+    this.editMachineEntity = this.backendURL + '/machines/list/';
+    this.listMachineEntitiesUrl = this.backendURL + '/machines/list';
 
   }
 

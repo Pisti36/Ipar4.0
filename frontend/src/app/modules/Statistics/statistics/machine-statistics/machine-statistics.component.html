@@ -1,0 +1,76 @@
+<page-heading>
+  <div class="container">
+      <br>
+      {{machine.name}} statisztika
+      <hr>
+  </div>
+</page-heading>
+<div class="container">
+  <span>Hibák száma összesen: {{statisticsData.solved + statisticsData.unsolved}} (Összes)<br>
+    Halszálka hasznossága: {{statisticsData.solved}}/{{statisticsData.unsolved}}(Sikeres / Összes) <br> 
+    Siker aránya: {{(statisticsData.solved/statisticsData.unsolved)*100 | number : '.2-2'}}% <br>
+    Megoldás átlagos ideje: {{avgDuration}} perc <br>
+    Legutóbbi hiba időpontja: {{lastFaultDate}}<br>
+    {{timeUntilRepair}}</span>
+  <div style="display: block" class="mt-3">
+    <h2>Megoldott problémák</h2>
+    <canvas baseChart
+            [datasets]="pieChartData"
+            [labels]="pieChartLabels"
+            [options]="pieChartOptions"
+            [chartType]="pieChartType">
+    </canvas>
+  </div>
+  <div style="display: block" class="mt-3 mb-3">
+    <h2 class="mb-3" >Hibák száma az üzembehelyezés óta</h2>
+    <canvas baseChart width="400" height="150"
+            [datasets]="comissionDiagramData"
+            [labels]="comissionDiagramLabels"
+            [options]="ChartOptions"
+            [legend]="ChartLegend"
+            [chartType]="lineChartType">
+    </canvas>
+  </div>
+  <div style="display: block" class="mb-3">
+    <h2 class="mb-3" >Hibák javítási ideje</h2>
+    <canvas baseChart width="400" height="150"
+            [datasets]="repairTimeDiagramData"
+            [labels]="repairTimeDiagramLabels"
+            [options]="ChartOptions"
+            [legend]="ChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+  </div>
+  <div style="display: block" class="mb-3">
+    <h2 class="mb-3" >Hibák javítási során meglátogatott mezők gyakorisága</h2>
+    <canvas baseChart width="400" height="150"
+            [datasets]="nodesDiagramData"
+            [labels]="nodesDiagramLabels"
+            [options]="ChartOptions"
+            [legend]="ChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+  </div>
+  <div style="display: block" class="mt-3 md-10">
+    <h2>Felmerült problémák</h2>
+    <canvas baseChart
+            [datasets]="problemNodesDiagramData"
+            [labels]="problemNodesDiagramLabels"
+            [options]="pieChartOptions"
+            [chartType]="pieChartType">
+    </canvas>
+  </div>
+  <div style="display: block" class="mt-3 mb-3">
+    <h2 class="mb-3" >A javítás eredményei</h2>
+    <canvas baseChart width="400" height="150"
+            [datasets]="endNodesDiagramData"
+            [labels]="endNodesDiagramLabels"
+            [options]="ChartOptions"
+            [legend]="ChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+  </div>
+  <br>
+  <br>
+  <br>
+</div>

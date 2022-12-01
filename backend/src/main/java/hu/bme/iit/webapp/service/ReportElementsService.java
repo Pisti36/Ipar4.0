@@ -1,9 +1,11 @@
 package hu.bme.iit.webapp.service;
 
 import hu.bme.iit.webapp.dao.ReportElementsRepository;
+import hu.bme.iit.webapp.dao.ReportRepository;
 import hu.bme.iit.webapp.domain.MachineStatisticsData;
 import hu.bme.iit.webapp.model.Report;
 import hu.bme.iit.webapp.model.ReportElements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -13,7 +15,10 @@ import java.util.List;
 @Transactional
 @Service
 public class ReportElementsService {
+    @Autowired
     ReportElementsRepository repository;
+    @Autowired
+    ReportRepository reportRepository;
 
     public ReportElementsService(ReportElementsRepository reportEventRepository) {
         this.repository = reportEventRepository;
@@ -30,8 +35,7 @@ public class ReportElementsService {
     }
 
     public ReportElements save (ReportElements reportEvent){
-        repository.save(reportEvent);
-        return reportEvent;
+        return repository.save(reportEvent);
     }
 
     public List<MachineStatisticsData> getStatisticsByMachineId(List<Report> reports){
@@ -53,4 +57,12 @@ public class ReportElementsService {
         repository.delete(reportEvent);
     }
 
+    public List<ReportElements> findReportElementsByMachine(Integer machineid) {
+        List<ReportElements> reportsbymachine = new ArrayList<>();
+        List<Integer> ids = reportRepository.getIdsByMachine(machineid);
+        for(Integer id : ids ) {
+            reportsbymachine.addAll(repository.getReportElementsByReportId(id));
+        }
+        return reportsbymachine;
+    }
 }

@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { Routes, RouterModule } from '@angular/router';
-import { MyBarChartComponent } from './statistics/bar-chart/bar-chart.component';
+import { MyMachineStatisticsComponent } from './statistics/machine-statistics/machine-statistics.component';
 import { ChartsModule } from 'ng2-charts';
-import { LineChartComponent } from './statistics/line-chart/line-chart.component';
+import { MachineTypeStatisticsComponent } from './statistics/machine-type-statistics/machine-type-statistics.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { StatisticsService } from './http/statistics.service';
 import { MachineService } from '../Machines/http/machines.service';
@@ -15,16 +15,16 @@ import { FaultDiagramService } from '../FaultDiagram/http/faultdiagram.service';
 
 const routes: Routes = [
   { path: '', component: StatisticsComponent},
-  { path: 'machinetype/:id', component: LineChartComponent},
-  { path: 'machine/:id', component: MyBarChartComponent},
+  { path: 'machinetype/:id', component: MachineTypeStatisticsComponent},
+  { path: 'machine/:id', component: MyMachineStatisticsComponent},
 ];
 
 
 @NgModule({
   declarations: [
     StatisticsComponent,
-    MyBarChartComponent,
-    LineChartComponent
+    MyMachineStatisticsComponent,
+    MachineTypeStatisticsComponent
   ],
   imports: [
     RouterModule.forChild(routes),

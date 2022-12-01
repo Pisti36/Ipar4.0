@@ -1,15 +1,16 @@
-<div *ngIf=videxists class="row justify-content-center mt-5 frameWrapper" >
+<div *ngIf=videxists class="row justify-content-center mt-3 frameWrapper" >
     <iframe *ngIf=videxists  [src]="vidsafeSrc" frameborder="0" scrolling='no' allow='autoplay' allowfullscreen></iframe>
 </div>
-<div *ngIf=imgexists class="row justify-content-center mt-5 frameWrapper imgframe" >
+<div *ngIf=imgexists class="row justify-content-center mt-3 frameWrapper imgframe" >
     <img width="100%" *ngIf=imgexists  [src]="imgsafeSrc" frameborder="0" scrolling='no'>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 mb-5 text-center">
     <h2>{{suggestion.content}}</h2>
 </div>
+<hr class = "justify-content-center">
 <page-heading>
-<div class="container mt-5 mb-5">
-    <div class="row justify-content-center title text-center" >{{question.content}}</div>
+<div class="container mt-5 mb-3">
+    <h2 class="row justify-content-center title text-center" >{{question.content}}</h2>
 </div>
 </page-heading>
 <div class="container solutioncontainer">
@@ -18,7 +19,7 @@
             <select [(ngModel)]="selectedOption" matNativeControl required >
                 <option *ngFor="let answer of answers" [value]="answer">{{answer}}</option>
             </select>
-            </mat-form-field>
+        </mat-form-field>
     </div>
     <div *ngIf= "questionType == 2" class="type2 row justify-content-center">
         <button  class="btn btn-primary" (click)="sendAnswer()"> Tovább</button>

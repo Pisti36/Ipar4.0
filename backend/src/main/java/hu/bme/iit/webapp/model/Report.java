@@ -1,9 +1,6 @@
 package hu.bme.iit.webapp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -13,21 +10,43 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Report {
 
     public Report(){}
-    public Report(Integer id, String status, Integer user_id, Integer machine_id, Date time) {
-        this.id = id;
+    public Report(String status, Integer machinetype_id, Integer machine_id, Date starttime, Date endtime, Integer lastNode) {
         this.status = status;
-        this.user_id = user_id;
+        this.machinetype_id = machinetype_id;
         this.machine_id = machine_id;
-        this.time = time;
+        this.startTime = starttime;
+        this.endTime = endtime;
+        this.lastNode = lastNode;
     }
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
+    @Column(name="id")
     private Integer id;
+    @Column(name="status")
     private String status;
-    private Integer user_id;
+    @Column(name="machinetype_id")
+    private Integer machinetype_id;
+    @Column(name="machine_id")
     private Integer machine_id;
-    private Date time;
+    @Column(name="start_time")
+    private Date startTime;
+    @Column(name="end_time")
+    private Date endTime;
+    @Column(name="last_node")
+    private Integer lastNode;
+
+    public Integer getLastNode() {
+        return lastNode;
+    }
+
+    public void setLastNode(Integer lastNode) {
+        this.lastNode = lastNode;
+    }
+
+    public Date getEndTime() { return endTime;}
+
+    public void setEndTime(Date endtime) {this.endTime = endtime; }
 
     public Integer getId() {
         return id;
@@ -45,12 +64,12 @@ public class Report {
         this.status = status;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getMachineType_id() {
+        return machinetype_id;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setMachineType_id(Integer machinetype_id) {
+        this.machinetype_id = machinetype_id;
     }
 
     public Integer getMachine_id() {
@@ -61,12 +80,12 @@ public class Report {
         this.machine_id = machine_id;
     }
 
-    public Date getTime() {
-        return time;
+    public Date getStartTime() {
+        return startTime;
     }
 
-    public void setTime(Date time) {
-        this.time = time;
+    public void setStartTime(Date time) {
+        this.startTime = time;
     }
 
 }

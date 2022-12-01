@@ -1,36 +1,11 @@
-.frameWrapper {
-    position: relative;
-    padding-bottom: 45%; /* proportion value to aspect ratio 16:9 (9 / 16 = 0.5625 or 56.25%) */
-    height: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    overflow: hidden;
-}
-.frameWrapper.imgframe{
-    padding-bottom: 65%
-}
-.frameWrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+.center {
     height: 100%;
-}
-.fa-close{
-    color: red;
-}
-.fa-check{
-    color: #4CAF50;
-}
-.solutioncontainer{
-    padding-bottom: 50px;
+    width: 100%;
+    position: relative;
+    top: 15%;
 }
 .title{
-    font-size: xxx-large;
-}
-.type1 > *{
-    font-size: 45px;
+    font-size: 40px;
 }
 .type2 > *{
     font-size: xx-large;

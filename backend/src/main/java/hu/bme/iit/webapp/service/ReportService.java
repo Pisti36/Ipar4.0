@@ -1,17 +1,21 @@
 package hu.bme.iit.webapp.service;
 
+import hu.bme.iit.webapp.dao.ReportElementsRepository;
 import hu.bme.iit.webapp.dao.ReportRepository;
-import hu.bme.iit.webapp.model.Machines;
-import hu.bme.iit.webapp.model.Report;
+import hu.bme.iit.webapp.model.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Transactional
 @Service
 public class ReportService {
+    @Autowired
     ReportRepository reportRepository;
 
     public ReportService(ReportRepository reportRepository) {
@@ -42,7 +46,6 @@ public class ReportService {
         for (Machines m : machines) {
             reportRepository.findFaultsForMachines(m.getId()).forEach(list::add);
         }
-
         return list;
     }
 
@@ -50,4 +53,10 @@ public class ReportService {
         List<Report> list = reportRepository.findReportByMachineId(id);
         return list;
     }
+
+    public List<Report> findReportsForMachineTypeId(Integer id) {
+        List<Report> list = reportRepository.findReportByMachineTypeId(id);
+        return list;
+    }
+
 }

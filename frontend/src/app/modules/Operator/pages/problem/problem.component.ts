@@ -50,13 +50,14 @@ export class ProblemComponent implements OnInit {
 
   selectProblem(problem: Node){
     this.position = problem.position + ".1";
+    this.report.summary = problem.content;
   }
 
   sendAnswer(){
     this.problems.forEach(element => {
         console.log("problems list isnt empty");
         if(element.content == this.selectedOption){
-            this.report.answer = "Root chosen " + element.position;
+            this.report.summary = "Problem: " + element.position;  //will be element.summary
             this.report.node_id = element.id;
             this.position = element.position + ".1";
             console.log("NewPosition " + this.position);
@@ -73,11 +74,15 @@ export class ProblemComponent implements OnInit {
     this.report.report_id = this.reportID;
     this.operatorService.saveReportElement({
 		  "id" : this.report.id,
-		  "answer" : this.report.answer,
-		  "count" : this.report.count,
 		  "report_id" : this.report.report_id,
-		  "node_id" : this.report.node_id
-	  });
+		  "node_id" : this.report.node_id,
+		  "summary" : this.report.summary,
+		  "count" : this.report.count,
+      "duration" : 0
+	  }).subscribe(
+      (res)=> {this.report = res; console.log(res)},
+      (err)=> console.log(err)
+    );
   }
 
 }

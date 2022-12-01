@@ -17,6 +17,7 @@ public class Nodes {
             String type,
             String position,
             String content,
+            String summary,
             String image_link,
             String video_link,
             Boolean isLeaf,
@@ -26,6 +27,7 @@ public class Nodes {
         this.type = type;
         this.position = position;
         this.content = content;
+        this.summary = summary;
         this.image_link = image_link;
         this.video_link = video_link;
         this.isLeaf = isLeaf;
@@ -39,6 +41,7 @@ public class Nodes {
     private String type;
     private String position;
     private String content;
+    private String summary;
     private String image_link;
     private String video_link;
     private Boolean isLeaf;
@@ -116,5 +119,13 @@ public class Nodes {
 
     public void setMachine_type(Integer machine_type) {
         this.machine_type = machine_type;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 }
