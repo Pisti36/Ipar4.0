@@ -128,13 +128,13 @@ export class MachineTypeStatisticsComponent implements OnInit {
       console.log(data);
       this.statisticsData = data.statistics;
       this.machineNames = data.machines;
-      //this.machineNames.push("Test");
-      //this.machineNames.push("Test2");
+      this.machineNames.push("TestA");
+      this.machineNames.push("TestB");
       this.machineReportNumbers = data.machineReportCount;
-      /*this.machineReportNumbers.push(4);
       this.machineReportNumbers.push(3);
-      this.machineReportNumbers[0] -= 4;
-      this.machineReportNumbers[0] -= 3;*/
+      this.machineReportNumbers.push(5);
+      this.machineReportNumbers[0] -= 3;
+      this.machineReportNumbers[0] -= 5;
       console.log("Names")
       console.log(this.machineNames)
       console.log("Report numbers")
@@ -244,7 +244,7 @@ export class MachineTypeStatisticsComponent implements OnInit {
                   problemNodesData[j].push(0);
               }
               console.log("problemnodes data: " + this.problemNodesDiagramLabels.indexOf(this.machineNames[machineidx] + " " + report.summary.substring(9)));
-              problemNodesData[machineidx][Math.floor(this.problemNodesDiagramLabels.indexOf(this.machineNames[machineidx] + " " + report.summary.substring(9))/this.machineNames.length)]++;
+              problemNodesData[machineidx][this.problemNodesDiagramLabels.indexOf(this.machineNames[machineidx] + " " + report.summary.substring(9))]++;
             }
             else{
               problemNodesData[machineidx][idx]++;
@@ -269,23 +269,23 @@ export class MachineTypeStatisticsComponent implements OnInit {
         }
       });
       
-      console.log(this.problemNodesDiagramLabels)
+      //console.log(this.problemNodesDiagramLabels)
       this.nodesDiagramData.push({data: nodesVisitedData, label: "Node", backgroundColor: 'darkred', borderColor:'darkred',  hoverBackgroundColor: 'red'})
       
       for(var i =0; i< this.nodesDiagramLabels.length;i++){
         nodesAvgTimeData[i] = Math.ceil((nodesAvgTimeData[i]/nodesVisitedData[i])/60);
       }
       this.nodesDiagramData.push({data: nodesAvgTimeData, label: "Átlagos eltöltött idő a Node-ban (perc)",  backgroundColor: 'blue', borderColor:'blue',  hoverBackgroundColor: 'royalblue'})
-      console.log("ENDNODES DATA:")
+      /*console.log("ENDNODES DATA:")
       console.log(endNodesData);
       console.log("PROBLEM DATA:")
       console.log(problemNodesData);
-      console.log(this.problemNodesDiagramLabels);
+      console.log(this.problemNodesDiagramLabels);*/
       for(var i =0; i< endNodesData.length; i++){
         this.endNodesDiagramData.push({data: endNodesData[i] , label: this.machineNames[i]})
         this.problemNodesDiagramData.push({data: problemNodesData[i], label:  this.machineNames[i] + " problem"})
       }
       
-      console.log(this.nodesDiagramData)
+      console.log(this.problemNodesDiagramData)
   }
 }
