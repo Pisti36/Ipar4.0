@@ -16,7 +16,7 @@ exports.config = {
     browserName: 'chrome'
   },
   directConnect: true,
-  baseUrl: 'http://vm.ik.bme.hu:15206',
+  baseUrl: 'http://vm.ik.bme.hu:10813',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
