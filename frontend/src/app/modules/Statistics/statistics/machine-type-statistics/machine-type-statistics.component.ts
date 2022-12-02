@@ -128,13 +128,15 @@ export class MachineTypeStatisticsComponent implements OnInit {
       console.log(data);
       this.statisticsData = data.statistics;
       this.machineNames = data.machines;
-      this.machineNames.push("TestA");
-      this.machineNames.push("TestB");
       this.machineReportNumbers = data.machineReportCount;
+      /*this.machineNames.push("TestA");
+      this.machineNames.push("TestB");
+      this.machineNames.push("TestC");
       this.machineReportNumbers.push(3);
+      this.machineReportNumbers.push(0);
       this.machineReportNumbers.push(5);
       this.machineReportNumbers[0] -= 3;
-      this.machineReportNumbers[0] -= 5;
+      this.machineReportNumbers[0] -= 5;*/
       console.log("Names")
       console.log(this.machineNames)
       console.log("Report numbers")
@@ -177,18 +179,18 @@ export class MachineTypeStatisticsComponent implements OnInit {
 
     var iterator =0;
     for(var i =0; i< this.machineNames.length; i++){
-      let dataArray = Array.from(Array(maxTimeSinceComission+1), ()=>0);
+      let dataArray = Array.from(Array(maxTimeSinceComission), ()=>0);
       var j;
       for(j=0; j< this.machineReportNumbers[i]; j++){
-        dataArray[Math.ceil(this.statisticsData.reportsTimesSinceComission[iterator + j]/30)]++;
+        dataArray[Math.floor(this.statisticsData.reportsTimesSinceComission[iterator + j]/30)]++;
       }
       iterator +=j;
       this.comissionDiagramData.push({data: dataArray, label: this.machineNames[i] + ' hibáinak száma'});
     }
     
-    let monthArray = Array.from(Array(maxTimeSinceComission+1), ()=>"");
-    for (let i = 1; i< maxTimeSinceComission + 1; i++){
-      monthArray[i] = i + ". hónap";
+    let monthArray = Array.from(Array(maxTimeSinceComission), ()=>"");
+    for (let i = 1; i< maxTimeSinceComission; i++){
+      monthArray[i] = i+1 + ". hónap";
     }
     monthArray[0] = "Üzembehelyezés hónapja";
     
@@ -235,7 +237,7 @@ export class MachineTypeStatisticsComponent implements OnInit {
             }
             iterator++;
           }
-          else{
+          else if(report.summary.includes("Problem: ") || report.summary.includes("Root chosen")){
             var idx = this.problemNodesDiagramLabels.indexOf(this.machineNames[machineidx] + " " + report.summary.substring(9));
             if(idx <0){
               for(var i = 0; i< this.machineNames.length; i++){
@@ -253,6 +255,8 @@ export class MachineTypeStatisticsComponent implements OnInit {
           if(iterator >= this.machineReportNumbers[machineidx]){
             iterator = 0;
             machineidx++;
+            while(this.machineReportNumbers[machineidx]==0)
+              machineidx++;
           }
         }
         else{

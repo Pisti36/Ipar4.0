@@ -11,6 +11,7 @@ C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\contr
 C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\service\UsersService.java
 C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\domain\MachineStatisticsData.java
 C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\Nodes.java
+C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\MachineTypeStatistics.java
 C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\ReportElements.java
 C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\dao\NodesRepository.java
 C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\NodeReport.java
@@ -20,9 +21,10 @@ C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\servi
 C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\MachineType.java
 C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\dao\MachineTypeRepository.java
 C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\Users.java
+C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\service\StatisticsService.java
 C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\service\ReportService.java
 C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\dao\MachinesRepository.java
-C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\MachineTypeStatistic.java
+C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\controller\StatisticsController.java
 C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\controller\NodesController.java
 C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\service\MachineTypeService.java
 C:\Users\Tomi\source\repos\Ipar4.0\backend\src\main\java\hu\bme\iit\webapp\model\Machines.java
