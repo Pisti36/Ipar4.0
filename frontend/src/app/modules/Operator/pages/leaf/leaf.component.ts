@@ -58,15 +58,7 @@ constructor(
       window.scroll(0,0);
     })
     this.startDate = new Date();
-    this.operatorService.getReportById(this.reportID).subscribe(res => {
-      this.report = res
-      console.log(this.report)
-      this.machineService.getMachine(this.report.machine_id).subscribe(res =>{
-        this.email = res.mail;
-        if(this.leaf.type == "E")
-        this.leaf.content = "Amennyiben a hiba továbbra is fenn áll, forduljon szakértőhöz a(z) " + this.email + " email címen";
-      } );
-    } );
+    
   }
 
   getData(){
@@ -74,6 +66,15 @@ constructor(
       data=>{
         this.list = data;
         this.convert();
+        this.operatorService.getReportById(this.reportID).subscribe(res => {
+          this.report = res
+          console.log(this.report)
+          this.machineService.getMachine(this.report.machine_id).subscribe(res =>{
+            this.email = res.mail;
+            if(this.leaf.type == "E")
+            this.leaf.content = "Amennyiben a hiba továbbra is fenn áll, forduljon szakértőhöz a(z) " + this.email + " email címen";
+          } );
+        } );
         this.getNext();
         this.getNewPositions();
       })
