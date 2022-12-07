@@ -38,31 +38,12 @@ public class ReportElementsService {
         return repository.save(reportEvent);
     }
 
-    public List<MachineStatisticsData> getStatisticsByMachineId(List<Report> reports){
-        List<MachineStatisticsData> statisticsData = new ArrayList<>();
-        for (Report re: reports) {
-            //reportEventRepository.getStatisticsByMachineId(re.getId());
-            Integer id = repository.getStatisticsByMachineId(re.getId());
-            MachineStatisticsData mData = new MachineStatisticsData();
-            mData.setMachineid(re.getMachine_id());
-            mData.setReport_id(re.getId());
-            mData.setStatus(re.getStatus());
-            mData.setDiagram_id(id);
-            statisticsData.add(mData);
-        }
-        return statisticsData;
-    }
 
     public void delete(ReportElements reportEvent){
         repository.delete(reportEvent);
     }
 
-    public List<ReportElements> findReportElementsByMachine(Integer machineid) {
-        List<ReportElements> reportsbymachine = new ArrayList<>();
-        List<Integer> ids = reportRepository.getIdsByMachine(machineid);
-        for(Integer id : ids ) {
-            reportsbymachine.addAll(repository.getReportElementsByReportId(id));
-        }
-        return reportsbymachine;
+    public List<ReportElements> getReportElementsByReportId(Integer id){
+        return repository.getReportElementsByReportId(id);
     }
 }

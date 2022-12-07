@@ -38,15 +38,15 @@ export class AddNewMachineComponent implements OnInit {
   onSubmit(): void {
     this.newMachine.machineTypeId = this.id;
     this.newMachine.name = this.addNewMachineForm.get('name').value;
-    this.newMachine.line = this.addNewMachineForm.get('line').value;
+    this.newMachine.line = parseInt(this.addNewMachineForm.get('line').value);
     this.newMachine.faultsCount = 0;
-    this.newMachine.status = this.addNewMachineForm.get('status').value;
+    this.newMachine.status = parseInt(this.addNewMachineForm.get('status').value);
     this.newMachine.mail = this.addNewMachineForm.get('email').value;
     this.newMachine.commissionDate = this.addNewMachineForm.get('commissionDate').value;
 
     console.log(this.newMachine);
 
-    this.machineService.saveMachineEntity(this.newMachine);
+    console.log(this.machineService.saveMachineEntity(this.newMachine));
     this.router.navigate(['/machines/details/' + this.id]).then(() =>{
       window.location.reload();
     });

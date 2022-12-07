@@ -4,7 +4,7 @@ export class MachineEntity {
     name: string;
     line: number;
     faultsCount: number;
-    status: boolean;
+    status: number;
     mail: string;
     commissionDate: Date;
 }

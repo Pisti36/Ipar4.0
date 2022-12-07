@@ -8,7 +8,7 @@
 <div class="container">
   <span>Hibák száma összesen: {{statisticsData.solved + statisticsData.unsolved}} (Összes)<br>
     Halszálka hasznossága: {{statisticsData.solved}}/{{statisticsData.unsolved}}(Sikeres / Összes) <br> 
-    Siker aránya: {{(statisticsData.solved/statisticsData.unsolved)*100 | number : '.2-2'}}% <br>
+    Siker aránya: {{(statisticsData.solved/(statisticsData.solved + statisticsData.unsolved))*100 | number : '.2-2'}}% <br>
     Megoldás átlagos ideje: {{avgDuration}} perc<br>
     Legutóbbi hiba időpontja: {{lastFaultDate}}</span>
   <div style="display: block" class="mt-3">

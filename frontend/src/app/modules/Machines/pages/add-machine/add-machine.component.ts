@@ -30,12 +30,13 @@ export class AddMachineComponent {
     this.newMachine.name = this.addMachineForm.get('machineName').value;
     this.newMachine.image = this.addMachineForm.get('imageLink').value;
     this.newMachine.comment = this.addMachineForm.get('comment').value;
+    this.newMachine.count = 0;
 
     console.log(this.newMachine);
 
     this.machineService.save(this.newMachine);
     this.router.navigate(['/machines']).then(() =>{
-      window.location.reload();
+      //window.location.reload();
     });
   }
 

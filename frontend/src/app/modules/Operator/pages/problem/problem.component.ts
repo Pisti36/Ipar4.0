@@ -50,14 +50,13 @@ export class ProblemComponent implements OnInit {
 
   selectProblem(problem: Node){
     this.position = problem.position + ".1";
-    this.report.summary = problem.content;
   }
 
   sendAnswer(){
     this.problems.forEach(element => {
         console.log("problems list isnt empty");
         if(element.content == this.selectedOption){
-            this.report.summary = "Problem: " + element.position;  //will be element.summary
+            this.report.summary = "Problem: " + element.content;  //will be element.summary
             this.report.node_id = element.id;
             this.position = element.position + ".1";
             console.log("NewPosition " + this.position);

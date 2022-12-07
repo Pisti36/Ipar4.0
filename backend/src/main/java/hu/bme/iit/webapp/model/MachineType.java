@@ -2,6 +2,7 @@ package hu.bme.iit.webapp.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -10,7 +11,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class MachineType {
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
     private String image;

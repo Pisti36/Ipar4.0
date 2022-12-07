@@ -64,11 +64,9 @@ constructor(
       this.machineService.getMachine(this.report.machine_id).subscribe(res =>{
         this.email = res.mail;
         if(this.leaf.type == "E")
-          this.leaf.content = "Amennyiben a hiba továbbra is fenn áll, forduljon szakértőhöz a(z) " + this.email + " email címen";
+        this.leaf.content = "Amennyiben a hiba továbbra is fenn áll, forduljon szakértőhöz a(z) " + this.email + " email címen";
       } );
     } );
-    
-    
   }
 
   getData(){
@@ -81,9 +79,10 @@ constructor(
       })
   }
 
-  convert(){
+  async convert(){
     this.list.forEach(element => {
       this.leaf = element;
+
     });
   }
 
@@ -141,7 +140,10 @@ constructor(
   }
 
   updateReport(message: string){
-    this.postReport();
+    if(message=="Unsolved")
+      this.postReport("End: A problémát nem sikerült megoldani");
+    else
+      this.postReport("End: " + this.leaf.content);
     var now = new Date();
     this.report.endTime = this.datepipe.transform(now, 'yyyy-MM-dd\'T\'HH:mm:ss.SSSZ');
     this.operatorService.updateReport({
@@ -166,8 +168,8 @@ constructor(
     );
   }
 
-  postReport(){
-      this.reportelement.summary = "End: " + this.leaf.content;
+  postReport(sum :string){
+      this.reportelement.summary = sum;
       this.reportelement.count = (this.count + 1);
       this.reportelement.report_id = this.reportID;
       this.reportelement.node_id = this.leaf.id;

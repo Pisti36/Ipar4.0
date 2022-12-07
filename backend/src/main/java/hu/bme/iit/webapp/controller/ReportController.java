@@ -54,13 +54,13 @@ public class ReportController {
     }
 
     //TODO
-    @PostMapping(path="/statistics")
+    @PostMapping(path="/machinetype")
     public @ResponseBody
-    List<Report> getMachineTypeStatistic(@Valid @RequestBody List<Machines> machines){
+    List<Report> getMachineTypeFaults(@Valid @RequestBody List<Machines> machines){
         return service.findFaultsForMachines(machines);
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = "/machine/{id}")
     public @ResponseBody
     ResponseEntity<List<Report>> getReportsByMachineId(@PathVariable(value="id") Integer id){
         List<Report> reports = service.findReportsForMachine(id);

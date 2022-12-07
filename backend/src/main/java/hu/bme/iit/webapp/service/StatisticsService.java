@@ -17,6 +17,8 @@ public class StatisticsService {
     @Autowired
     ReportService reportService;
     @Autowired
+    ReportElementsService reportElementsService;
+    @Autowired
     ReportElementsRepository reportElementsRepository;
     @Autowired
     MachinesService machinesService;
@@ -54,23 +56,21 @@ public class StatisticsService {
         List<Integer> reportDuration = statistics.getReportDuration();
         List<NodeReport> nodeReports= statistics.getNodeReports();
         for(Report report : machineReports){
-            boolean issolved = false;
-            if(report.getStatus().equals("Solved")){
-                solved++;
-                issolved = true;
-            }
-            else if(report.getStatus().equals("Unsolved")){
-                unsolved++;
-            }else{
-                continue;
-            }
             if(report.getStartTime() != null && report.getEndTime() != null) {
+                if(report.getStatus().equals("Solved")){
+                    solved++;
+                }
+                else if(report.getStatus().equals("Unsolved")){
+                    unsolved++;
+                }else{
+                    continue;
+                }
                 this.reportCount++;
                 reportTimes.add(report.getStartTime());
                 reportsTimesSinceComission.add((int) (TimeUnit.MILLISECONDS.toDays(report.getStartTime().getTime() - comissionDate.getTime())));
                 reportDuration.add((int) ((report.getEndTime().getTime() - report.getStartTime().getTime()) / 1000));
 
-                List<ReportElements> reportsReportElemnets = reportElementsRepository.getReportElementsByReportId(report.getId());
+                List<ReportElements> reportsReportElemnets = reportElementsService.getReportElementsByReportId(report.getId());
                 for (int i = 0; i < reportsReportElemnets.size(); i++) {
                     ReportElements curr = reportsReportElemnets.get(i);
                     if (curr.getNode_id() != null) {

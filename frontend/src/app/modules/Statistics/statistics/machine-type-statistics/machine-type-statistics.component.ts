@@ -129,14 +129,14 @@ export class MachineTypeStatisticsComponent implements OnInit {
       this.statisticsData = data.statistics;
       this.machineNames = data.machines;
       this.machineReportNumbers = data.machineReportCount;
-      /*this.machineNames.push("TestA");
-      this.machineNames.push("TestB");
-      this.machineNames.push("TestC");
-      this.machineReportNumbers.push(3);
-      this.machineReportNumbers.push(0);
-      this.machineReportNumbers.push(5);
-      this.machineReportNumbers[0] -= 3;
-      this.machineReportNumbers[0] -= 5;*/
+      //this.machineNames.push("TestA");
+      //this.machineNames.push("TestB");
+      //this.machineNames.push("TestC");
+      //this.machineReportNumbers.push(3);
+      //this.machineReportNumbers.push(0);
+      //this.machineReportNumbers.push(15);
+      //this.machineReportNumbers[0] -= 3;
+      //this.machineReportNumbers[0] -= 13;
       console.log("Names")
       console.log(this.machineNames)
       console.log("Report numbers")
@@ -155,7 +155,7 @@ export class MachineTypeStatisticsComponent implements OnInit {
     this.avgDuration = 0;
     var lengthminus =0;
     this.statisticsData.reportDuration.forEach(dur => {
-      if(dur < 86400 && dur > 120)
+      if(dur < 86400 && dur>120)
         this.avgDuration += dur;
       else
        lengthminus++;
@@ -199,7 +199,7 @@ export class MachineTypeStatisticsComponent implements OnInit {
 
   createDataForRepairTime(){
     for(var i = 0; i < this.statisticsData.reportTimes.length;i++){
-      if(this.statisticsData.reportDuration[i] > 86400 || this.statisticsData.reportDuration[i] < 120)
+      if(this.statisticsData.reportDuration[i] > 86400)
        continue;
       this.repairTimeDiagramData.push({data: Math.ceil(this.statisticsData.reportDuration[i]/60), label: "Javítás ideje (perc)", backgroundColor: 'green', borderColor:'green',  hoverBackgroundColor: 'darkgreen'})
       this.repairTimeDiagramLabels.push(this.statisticsData.reportTimes[i].substring(0,4)+". "+ this.statisticsData.reportTimes[i].substring(5,7)+ ". "+ this.statisticsData.reportTimes[i].substring(8,10)+". "+this.statisticsData.reportTimes[i].substring(11,16))
@@ -223,21 +223,21 @@ export class MachineTypeStatisticsComponent implements OnInit {
     this.statisticsData.nodeReports.forEach(report =>
       {
         if(report.summary != null){//ha problem / end node
-          if(!report.summary.includes("Root chosen") && !report.summary.includes("Problem: ")){//end
-            var idx = this.endNodesDiagramLabels.indexOf(report.summary);
+          if(report.summary.includes("End: ")){//end
+            var idx = this.endNodesDiagramLabels.indexOf(report.summary.substring(5));
             if(idx <0){
-              this.endNodesDiagramLabels.push(report.summary);
+              this.endNodesDiagramLabels.push(report.summary.substring(5));
               for(var i = 0;i< this.machineNames.length; i++){
                 endNodesData[i].push(0);
               }
-              endNodesData[machineidx][this.endNodesDiagramLabels.indexOf(report.summary)]++;
+              endNodesData[machineidx][this.endNodesDiagramLabels.indexOf(report.summary.substring(5))]++;
             }
             else{
               endNodesData[machineidx][idx]++
             }
             iterator++;
           }
-          else if(report.summary.includes("Problem: ") || report.summary.includes("Root chosen")){
+          else if(report.summary.includes("Problem: ")){
             var idx = this.problemNodesDiagramLabels.indexOf(this.machineNames[machineidx] + " " + report.summary.substring(9));
             if(idx <0){
               for(var i = 0; i< this.machineNames.length; i++){
@@ -259,7 +259,7 @@ export class MachineTypeStatisticsComponent implements OnInit {
               machineidx++;
           }
         }
-        else{
+        else if(report.duration != 0){
           var idx = this.nodesDiagramLabels.indexOf(report.nodeId);
           if(idx >= 0){
             nodesVisitedData[idx]++;
@@ -286,6 +286,8 @@ export class MachineTypeStatisticsComponent implements OnInit {
       console.log(problemNodesData);
       console.log(this.problemNodesDiagramLabels);*/
       for(var i =0; i< endNodesData.length; i++){
+        if(this.machineReportNumbers[i] == 0)
+          continue;
         this.endNodesDiagramData.push({data: endNodesData[i] , label: this.machineNames[i]})
         this.problemNodesDiagramData.push({data: problemNodesData[i], label:  this.machineNames[i] + " problem"})
       }

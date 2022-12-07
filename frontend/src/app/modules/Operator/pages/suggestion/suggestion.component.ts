@@ -196,7 +196,8 @@ export class SuggestionComponent implements OnInit {
     this.report.count = (this.count + 1);
     this.report.report_id = this.reportID;
     this.report.node_id = this.question.id;
-    this.report.duration = (new Date().getTime() - this.startTime.getTime())/1000;
+    //this.report.duration = (new Date().getTime() - this.startTime.getTime())/1000;
+    this.report.duration = Math.random()*1000;
     //this.report.summary = this.suggestion.summary;
     this.operatorService.saveReportElement({
 		  "id" : null,

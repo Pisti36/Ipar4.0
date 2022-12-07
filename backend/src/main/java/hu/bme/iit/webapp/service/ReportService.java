@@ -44,18 +44,13 @@ public class ReportService {
     public List<Report> findFaultsForMachines(List<Machines> machines){
         List<Report> list = new ArrayList<>();
         for (Machines m : machines) {
-            reportRepository.findFaultsForMachines(m.getId()).forEach(list::add);
+            reportRepository.findReportByMachineId(m.getId()).forEach(list::add);
         }
         return list;
     }
 
     public List<Report> findReportsForMachine(Integer id){
         List<Report> list = reportRepository.findReportByMachineId(id);
-        return list;
-    }
-
-    public List<Report> findReportsForMachineTypeId(Integer id) {
-        List<Report> list = reportRepository.findReportByMachineTypeId(id);
         return list;
     }
 
