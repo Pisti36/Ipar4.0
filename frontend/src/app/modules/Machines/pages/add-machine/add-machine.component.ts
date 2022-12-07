@@ -36,7 +36,7 @@ export class AddMachineComponent {
 
     this.machineService.save(this.newMachine);
     this.router.navigate(['/machines']).then(() =>{
-      //window.location.reload();
+      window.location.reload();
     });
   }
 
